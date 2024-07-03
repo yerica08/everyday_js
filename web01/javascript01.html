@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 기초</title>
+    <!-- 
+        html에서 <script>태그로 작성하여 내용을 작성할 수 있는데, 이것을 내부자바스크립트라고 한다.
+        src 속성을 이용해서 링크를 연결할 수 있는데 이것은 외부 자바스크립이다.
+
+        자바스크립트는 <head>에 넣는것이 정석이지만, 로딩속도가 느려져서 보통은 바디안이나 바디 바로 아래에 연결해서 넣는 경우가 많다. 
+        만약 헤드에 넣고 싶다면 defer를 넣어서 마지막에 javascript를 읽으라고 명령을 할 수 있다.
+        ** defer : 자바스크립트코드를 가장 마지막에 읽어오게 만드는 속성으로 head 태그 안에 script 파일을 연결할 때 보통 사용한다.
+    -->
+    <!-- java가 여러개 있을때 defer를 넣으면 오류난다. 안뜸. -->
+    <script src="./js/welcom.js" defer></script>
+  </head>
+  <body>
+    <!-- body의 가장 마지막줄에 선언하기. html태그를 읽은 후에 script안의 코드를 실행한다. -->
+    <!-- src 속성을 이용해서 연결 -->
+    <script src="./js/welcom.js"></script>
+
+    <!-- 
+
+      [자바스크립트 코드를 입력할 때 주의사항]
+
+      1. 자바스크립트는 대/소문자를 구분하여 작성해야한다.
+        ex. document.write() → 올바른 문법.
+            Document.Write() → 틀린 문법. 오류가 발생한다.
+
+      2. 코드를 한 줄을 작성한 후에는 ;(세미콜론)으로 마무리한다.
+         세미콜론을 쓰지 않고 한 줄에 두개의 코드를 작성하면 오류가 발생한다.
+         한줄만 작성한 것이라면 ;을 쓰지 않아도 오류는 나지 않지만 한 줄에 한 문장만 쓰는 것이 가독성이 좋다.
+        ex. document.write(); → 올바른 문법.
+            document.write()document.write()  → 틀린 문법. 오류가 발생한다.
+
+      3. 문자형 데이터를 작성할 때에는 ""(큰 따옴표)와 ''(작은 따옴표)의 겹침 오류를 조심해야한다.
+        ex. 틀린 문법
+            document.write('hello '김땡땡' world') → hello와 world가 각각 다른 문장이라고 생각한다.
+            document.write('hello "김땡땡' world") → 따옴표가 교차해서 들어가면 오류가 발생한다.
+        ex. 맞는 문법
+            document.write('hello "김땡땡" world') → 큰따옴표와 작은따옴표를 각각 세트로 인식해서 오류가 발생하지 않는다.
+            document.write("hello '김땡땡' world") → 큰따옴표와 작은따옴표를 가리지 않기 때문에 쓰고싶은 따옴표를 반대로 써준다.
+            document.write("hello &#145;김땡땡&#146; world") → 엔터틱코드를 쓰면 기호로 출력된다.
+            document.write("hello \'김땡땡\' world") → 역슬레쉬와 함께 기호를 쓰면 문자로 처리한다.
+        ** ￦(엔터버튼 위의 역슬레쉬)를 기호 옆에 붙여주면 문자의 시작과 끝을 구분하는 구분자가 아니라 다음에 오는 기호를 단순한 문자로 처리한다.
+      
+      4. 코드를 작성 할 때에는 {중괄호}나 [대괄호] (소괄호)의 짝이 맞아야한다.
+        ex. document.write(} → 틀린문법
+            document.write() → 올바른문법
+    -->
+  </body>
+  <!-- 이곳에다가 쓰기도 한다. -->
+  <script>
+    // document와 Document는 다르다.
+    document.write("hello world");
+  </script>
+</html>
