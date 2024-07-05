@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+  </head>
+  <body>
+    <script>
+      "user strict";
+      /*
+        연산자
+        : 더하기(+), 빼기(-), 곱하기(*), 나누기(/), 나머지(%)를 이용해서 연산을 할 수 있다.
+        자바스크립트에서는 여러 연산자가 있는데 산술, 문자결합, 대입(복합대입), 증감, 비교, 논리, 삼항 조건 연산자가 있다.
+        ** 7 나누기 2 일 때 나누고 남은 1이 나머지(%)이다.
+      */
+
+      /*
+        산술 연산자
+        : 산술 연산자는 사칙연산과 같다. 더하기(+), 빼기(-), 곱하기(*), 나누기(/), 나머지(%)가 바로 산술연산자이다.
+        산술연산을 하기 위해서 반드시 연산 대상 데이터(=피연산자)가 반드시 두 개 있어야한다.
+        ** 1 + 2 라면 1과 2가 연산대상 데이터이다.
+        ** 1+1 에서 더하기는 연산자. 1들은 피연산자이다.
+      */
+      var num1 = 1;
+      var num2 = 10;
+      // 자바스크립트에서는 숫자끼리 더하는 것이 아니라 변수끼리 더한다.
+      num1 + num2; //1+10= 11 하지만 이렇게만 쓰면 11이라는 변수를 담을 공간이 없기 때문에 아래와 같이 쓰는 것이 좋다.
+
+      // 아래 sum1과 sum2의 결과값은 같지만 다르다.
+      var sum1 = num1 + num2; //num1을 가져와서 다른 곳에서 사용하고 싶을 때 사용하기 좋다.
+      var sum2 = 1 + 10; //변수 안에서 연산이 다 끝나서 11이라는 값을 가질 수 밖에 없다.
+
+      var number1 = 15;
+      var number2 = 2;
+      var result;
+
+      result = number1 + number2;
+      console.log("number1 + number2 :", result); //두개를 구분할 때는 콤마로 구분한다.
+      result = number1 - number2;
+      console.log("number1 - number2 :", result);
+      result = number1 / number2;
+      console.log("number1 / number2 :", result);
+      result = number1 * number2;
+      console.log("number1 * number2 :", result);
+      result = number1 % number2;
+      console.log("number1 % number2 :", result);
+
+      /* 
+        문자 결합 연산자
+        : 문자 결합 연산자는 피연산자(연산 대상 데이터)가 문자형 데이터이다.
+        여러개의 문자를 하나의 문자형 데이터로 결합할 때 사용한다.
+        기호는 더하기(+)를 사용한다.
+
+        문자 결합 연산자는 피연산자로 문자형 데이터가 한개라도 포함되면 나머지 피연산자의 데이터는 자동으로 문자로 변환된다.
+        이러한 문자 결합이 이루어지면 하나의 문자형 데이터로 반환된다.
+
+        + 연산기호는 앞에 있는 데이터 순서대로 더해진다.
+        즉, 피 연산자가 숫자이고 숫자가 여러 개 있으면 숫자끼리 먼저 더해진 후 문자를 만나면 그 다음부터 문자결합이 이루어진다.
+
+      */
+
+      var str1 = "안녕하세요.";
+      var str2 = "제이름은";
+      var str3 = "김땡땡 입니다.";
+      var str4 = "전화번호는";
+      var str5 = 1234;
+      var str6 = "입니다.";
+      var result2 = str1 + str2 + str3 + str4 + str5 + str6;
+      console.log(result2);
+      console.log(typeof result2);
+      //안녕하세요.제이름은김땡땡 입니다.전화번호는1234입니다.
+
+      var str7 = "하이";
+      var numb1 = 10;
+      var numb2 = 20;
+      result3 = str7 + numb1 + numb2;
+      console.log(result3);
+      //하이1020
+      result3 = numb1 + numb2 + str7;
+      console.log(result3);
+      //30하이
+      result3 = numb1 + numb2 + str7 + str5 + numb1;
+      console.log(result3);
+      //30하이123410
+
+      /*
+        대입연산자
+        : 대입연산자는 연산된 데이터를 변수에 저장할 때 사용한다.
+        '오른쪽에 있는 값을 변수에 넣는다.'는 의미이다.
+
+        [기본형]
+        A = B
+
+        복합대입연산자
+        : 산술 연산자와 대입 연산자가 복합적으로 적용된 것을 말한다.
+
+        [기본형]
+        1. A += B   → A = A + B (A는 A와 B를 더한 값이다.)
+        1. A -= B   → A = A - B (A는 A에서 B를 뺀 값이다.)
+        1. A *= B   → A = A * B (A는 A와 B를 곱한 값이다.)
+        1. A /= B   → A = A / B (A는 A를 B로 나눈 값이다.)
+        1. A %= B   → A = A % B (A는 A를 B로 나누고 남은 값이다.)
+      */
+      var numbe1 = 10;
+      var numbe2 = 3;
+      numbe1 += numbe2; //10+3= 13
+      numbe1 -= numbe2; //13-3= 10
+      numbe1 *= numbe2; //10*3= 30
+      numbe1 /= numbe2; //0
+    </script>
+  </body>
+</html>

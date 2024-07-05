@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수에 담을 수 있는 자료형</title>
+  </head>
+  <style>
+    divP {
+      color: #d8edfa;
+    }
+  </style>
+  <body>
+    <!-- 
+        변수에 저장할 수 있는 자료형
+        : 자료형(data type)이란 데이터의 형태를 말한다.
+        변수에 담을 수 있는 자료형의 종류로는 
+        문자형(String), 숫자형(Number), 논리형(Boolean), 빈 데이터(Null, undefined)가 있다.
+    -->
+    <script>
+      /* 
+        1. 문자형 데이터(String)
+        : 문자형 데이터는 문자나 숫자를 "큰따옴표"나 '작은따옴표'로 감싸고 있으면 문자형 데이터이다.
+        문자형 데이터에 HTML 태그를 포함하여 출력하면 태그로 인식한다.
+        문자형 데이터에 숫자가 들어 있으면 이것을 문자형 숫자라고 부르며, 연산이 불가능하다.
+
+        [기본형]
+        var 변수명 = "문자/숫자"
+      */
+      var str1 = "hello world";
+      document.write(str1, "<br/>");
+
+      var num = "1000";
+      document.write(num, "<br/>");
+
+      var tag = "<h2>제목입니다</h2>";
+      document.write(tag);
+      /*
+        2. 숫자형 데이터(Number)
+        : 숫자형 데이터는 단어 의미 그대로 숫자를 뜻한다.
+        만약 '100'과 같이 따옴표가 숫자를 감싸고 있다면 숫자가 아닌 문자형 데이터이다.
+        문자형 숫자를 다시 숫자로 변환하고 싶다면 Number('문자형 숫자')나 parseInt('문자형 숫자')를 이용하면 문자를 숫자로 바꿀 수 있다.
+
+        [기본형]
+        var 변수명 = 숫자;
+      */
+      //Number
+      var num1 = 100;
+      console.log(num1);
+      //var num2 = Number("100");
+      var num2 = "100";
+      console.log(num2);
+      /*
+        3. 논리형 데이터(Boolean)
+        : 논리형 테이터에는 true(참) 또는 false(거짓)이 있다.
+        이 데이터는 주로 두 개의 데이터를 비교할 때 사용한다.
+        결과값은 무조건 true 아니면 false 값이 나온다.
+        Boolean()메서드에 데이터를 입력하면 논리형 데이터인 true/false값을 반환한다.
+        Boolean()메서드에서는 숫자0, null, undefined, 빈문자를 제외하고 모든 값을 ture로 반환한다.
+
+        [기본형]
+        var 변수명 = true or false;
+        var 변수명 = 숫자 > 숫자;
+        var 변수명 = Boolean(문자 또는 숫자);
+      */
+      var bool = true;
+      console.log(bool);
+
+      bool = false;
+      console.log(bool);
+
+      var bool2 = 10 > 100;
+      console.log(bool2);
+
+      var bool3 = Boolean("hello");
+      console.log(bool3);
+
+      // 빈문자가 들어오면 false가 나온다.
+      var bool3 = Boolean("");
+      console.log(bool3);
+
+      /*
+        4. null & undifined
+        : undifined는 변수에 값을 할당하기 이전에 들어있는 기본값이다. 
+        null은 변수의 저장된 값이 null이라는 뜻이며, 기존의 값을 비우기 위해서 사용한다.
+
+        [기본형]
+        var 변수명; // undefined가 할당된 상태.
+        var 변수명 = null // 기존 데이터를 비우는 것.
+      */
+      /*
+        typeof
+        : 지정한 데이터 또는 변수에 저장한 데이터의 자료형을 알 고 싶을 때 사용한다. 
+
+        [기본형]
+        typeof 변수명 또는 자료형
+      */
+      var num3 = 100;
+      var num4 = "100";
+      console.log(typeof num3);
+      console.log(typeof num4);
+      /*
+        변수 이름 지을 때 주의사항
+        1. 변수명의 첫 글자로는 $ _ 영문자만 올 수 있다.
+        2. 변수명의 첫글자 다음으로는 $ _ 영문자 숫자만 올 수 있다.
+        3. 변수명으로는 예약어(document, string, number...)를 사용할 수 없다.
+            * 예약어란 이미 자바스크립트에서 사용중인 키워드를 말한다.
+        4. 변수명을 지을 때는 의미를 부여해서 짓는 것이 좋다.
+        5. 변수명을 사용할 때에는 대/소문자를 구분해야 한다.
+
+        *상수: 변하지 않는 값 *변수: 변하지않는 값 *상수변수: 그 안에 값을 넣었을 때 값이 절대 변하지 않는 값.
+      */
+    </script>
+  </body>
+</html>
