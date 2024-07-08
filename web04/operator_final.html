@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>적정 체중 계산기</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+            적정 체중을 구하는 공식
+            : 적정 체중 = (본인 키 - 100)*0.9
+
+            철수의 적정 체중 구하기
+            1. 키 : 180cm
+            2. 몸무게 : 74kg
+            3. 적정체중 : (180-100)*0.9
+        */
+      //철수의 평균 체중 계산기
+      var userHeight = 180; // 철수의 키
+      var userWeight = 74; // 철수의 몸무게
+      var normal_w = (userHeight - 100) * 0.9;
+      document.write(normal_w, "<br/>");
+      /*
+        (괄호)가 붙는 애들이 다 메서드, 이 메서드는 함수다. 함수는 기능.
+        메서드는 모두 함수, 기능이 들어있다.
+
+        prompt()메서드:질의응답창
+        : 사용자에게 질문에 대한 답을 얻고자 할 때 사용하는 창.
+        prompt()메서드에서 기본 답변은 placeholder처럼 사용자에게 힌트를 주기 위해 사용하는 부분으로, 생략이 가능하다.
+        사용자로부터 전달받은 모든 답변은 문자형 데이터로 반환된다.
+
+        [기본형]
+        prompt("질문", "기본 답변(생략가능)")
+      */
+      //사용자의 평균체중 계산기
+      var userName = prompt("성함을 입력해주세요.", "철수");
+      var height = prompt("당신의 키는 몇입니까?", "180");
+      var weight = prompt("당신의 몸무게는 몇입니까?", "74");
+      document.write(
+        userName,
+        "님은 키 ",
+        height,
+        "cm 몸무게 ",
+        weight,
+        "kg 입니다. <br/>"
+      );
+      var normal_w = (height - 100) * 0.9;
+      document.write(
+        userName,
+        "님의 평균체중은 ",
+        normal_w,
+        "입니다.",
+        "<br/>"
+      );
+      var normal =
+        weight >= normal_w + 5 && weight <= normal_w - 5
+          ? "평균체중이 아닙니다."
+          : "평균체중입니다.";
+      // 74는 79보다 크거나 같다. false
+      // 74는 67보다 작거나 같다. false
+      // false인 평균체중입니다.가 출력
+      document.write("따라서, ", userName, "님은 ", normal, "<br/>");
+      var normal =
+        weight >= normal_w - 5 && weight <= normal_w + 5
+          ? "평균체중입니다."
+          : "평균체중이 아닙니다.";
+      // 74는 67보다 크거나 같다. true
+      // 74는 79보다 작거나 같다. true
+      // true인 평균체중입니다. 가 출력
+      document.write("따라서, ", userName, "님은 ", normal, "<br/>");
+      var normal =
+        weight > normal_w || weight < normal_w
+          ? "평균체중이 아닙니다."
+          : "평균체중입니다.";
+      // 74는 72보다 큽니다. true
+      // 74는 72보다 작습니다. false
+      // true인 평균체중이 아닙니다.
+      document.write("따라서, ", userName, "님은 ", normal, "<br/>");
+    </script>
+  </body>
+</html>

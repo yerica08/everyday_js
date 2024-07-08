@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>삼항조건연산자</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+            삼항조건연산자
+            : 삼항조건연산자는 조건식(true 또는 false로 값이 나오는 식)의 만족 여부에 따라
+            실행 결과가 달라지는 삼항 연산자로, 연산을 위해 3개의 피연산자가 필요하다.
+            삼항 조건 연산자는 먼저 조건식이 true 인지 false 인지 먼저 계산한다.
+            이후 true면 자바스크립트 코드 1을 실행하고 종료한다.
+            만약 false면 자바스크립트 코드 2를 실행하고 종료한다.
+
+            [기본형]
+            1. 조건식 ? 자바스크립트 코드1 : 자바스크립트 코드2;
+            
+            2. 조건식 ? 자바스크립트 코드1 : 조건식 ? 자바스크립트 코드2 : 자바스크립트 코드3;
+            ① 조건식 1 검사
+            ② 조건식 1이 true 면 자바스크립트 코드 1을 실행 후 종료.
+            ③ 조건식 1이 false면 조건식 2를 검사하고 true 면 자바스크립트 코드2를 실행 후 종료.
+            ④ 조건식 2가 false면 자바스크립트 코드 3을 실행 후 종료.
+        */
+
+      var a = 10;
+      var b = 3;
+
+      var result = a > b ? "javascript" : "hello world";
+      document.write(result, "<br/>");
+      var result = a < b ? "javascript" : "hello world";
+      document.write(result, "<br/>");
+    </script>
+  </body>
+</html>

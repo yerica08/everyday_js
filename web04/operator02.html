@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>증감연산자</title>
+  </head>
+  <body>
+    <script>
+      "use stirct";
+      /*
+        증감 연산자
+        : 증감 연산자는 숫자형 데이터를 1씩 증가시키는 증가연산자(++) 1씩 감소시키는 감소연산자(--)가 있다.
+        증감 연산자는 앞에서 배웠던 다른 연산자와 다르게 피연산자가 1개만 필요한 '단항연산자'이다.
+        즉, 증감 연산자는 스스로 연산하는 연산자이다.
+        증감 연산자는 기호가 어디에 오느냐에 따라서 계산 방식이 달라진다.
+
+        [기본형]
+        1. 변수--; 또는 --변수;
+        2. 변수++; 또는 ++변수;
+
+        전위 연산과 후위 연산
+        : 증감연산자에서 기호가 변수의 앞에 오면 '전위연산'
+        변수의 뒤에 오면 '후위연산'이라고 부른다.
+        보통 후위연산방식을 가장 많이 쓴다.
+
+        1. 전위연산
+            var A = ++B → 변수 B의 값을 먼저 1 증가시킨 후 A에 대입된다. → b=1일때, a=2 b=2 가 된다.
+        2. 후위연산
+            var A = B++ → 변수 B의 값이 먼저 A에 대입되고 그 다음 B의 값이 1 증가한다. → b=1일때, a=1 b=2 가 된다.
+      */
+
+      var num1 = 10;
+      var num2 = 20;
+      num1--; //9
+      document.write("num1은? ", num1, "<br/>");
+      num1++; //10
+      document.write("num1은? ", num1, "<br/>");
+      var result = num2++; //result=20 num2=21
+      document.write("result는? ", result, " num2는? ", num2, "<br/>");
+    </script>
+  </body>
+</html>

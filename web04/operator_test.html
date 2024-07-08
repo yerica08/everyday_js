@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자 문제 풀어보기</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+          영희의 하루 지출 내역이 다음과 같을 때, 하루 지출 비용의 합게를 구한 후
+          적정 지출 비용의 초과 여부를 출력하시오.
+
+          영희의 하루 지출 내역
+          - 교통비 : 3000원
+          - 식비 : 6000원
+          - 음료 : 3000원
+
+          하루 적정 지출 비용이 10,000원을 초과했을 경우 '000원 초과',
+          초과하지 않았을 경우 '돈 관리를 잘 하셨습니다!'를 출력하시오.
+
+      */
+
+      var price1 = 3000; //교통비
+      var price2 = 6000; //식비
+      var price3 = 3000; //음료비
+      var userName = "영희";
+      var totalPrice = price1 + price2 + price3;
+      document.write(
+        userName,
+        "님의 오늘 총 지출 금액은 ",
+        totalPrice,
+        " 입니다. <br/>"
+      );
+      var normalPrice = 10000;
+      var result =
+        totalPrice == normalPrice
+          ? "돈 관리를 잘 하셨습니다!"
+          : totalPrice > normalPrice
+          ? totalPrice - normalPrice + "원 초과 하셨습니다."
+          : normalPrice - totalPrice + "원 절약 하셨습니다.";
+      document.write(userName, "님은 오늘 ", result);
+    </script>
+  </body>
+</html>
