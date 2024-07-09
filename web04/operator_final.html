@@ -71,11 +71,11 @@
       // true인 평균체중입니다. 가 출력
       document.write("따라서, ", userName, "님은 ", normal, "<br/>");
       var normal =
-        weight > normal_w || weight < normal_w
+        weight >= normal_w + 5 || weight < normal_w - 5
           ? "평균체중이 아닙니다."
           : "평균체중입니다.";
-      // 74는 72보다 큽니다. true
-      // 74는 72보다 작습니다. false
+      // 74는 79보다 크거나 같다 . false
+      // 74는 67보다 작거나 같다. false
       // true인 평균체중이 아닙니다.
       document.write("따라서, ", userName, "님은 ", normal, "<br/>");
     </script>

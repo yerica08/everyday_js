@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제어문-if</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+            제어문
+            : 제어문은 프로그램의 흐름을 제어 할 수 있도록 도와주는 문장을 말한다.
+            제어문에는 조건식에 만족여부에 따라 코드를 제어하는 '조건문'과
+            '조건문'과 '변수'의 일치에 따라 코드를 제어하는 '선택문',
+            특정 코드를 원하는 횟수만큼 반복 실행하는 '반복문'이 있다.
+
+            -----------------------
+
+            if문 - 조건문
+            : if문은 조건식을 만족할 경우(true)에만 코드를 실행한다.
+            조건식은 앞에서 배웠던 Boolean 데이터와 마찬가지로
+            그 어떤 데이터를 입력해도 true 또는 false 값을 반환한다.
+            if 문이 조건식을 만족했을 경우 {중괄호}안의 코드를 실행하고 종료한다.
+            만약 만족하지 못하면 {중괄호}안의 코드는 실행하지 않고 그냥 종료한다.
+
+            [기본형]
+            if(조건식){ 조건식이 만족했을 경우 실행할 코드; } -가장 많이 쓰임
+            if(조건식) 조건식이 만족했을 경우 실행할 코드;
+        */
+
+      var a = 10;
+      var b = 3;
+
+      if (a > b) {
+        document.write("a는 b보다 큽니다.");
+      }
+
+      Boolean(0); // false
+      Boolean("하이"); //true
+      if ("하이") {
+        document.write("문자형 데이터는 결과값이 나옵니다.");
+      }
+      if (0) {
+        document.write("숫자0은 결과값이 안나옵니다.");
+      }
+      if ("0") {
+        document.write("문자형데이터 0은 결과값이 나옵니다.");
+      }
+      if (true) {
+        document.write("ture는 결과값이 나옵니다.");
+      }
+      if (false) {
+        document.write("false는 결과값이 안나옵니다.");
+      }
+      if ("") {
+        document.write("빈문자는 결과값이 안나옵니다.", "<br/>");
+      }
+      var walkAmount = prompt("하루에 몇 보를 걸으시나요?", "10000");
+      if (walkAmount >= 10000) {
+        document.write("좋은 습관을 가지고 계시네요!", "<br/>");
+      }
+
+      //사용자에게 하루 통화량이 얼마나 되는지 묻고 60분 이상이면
+      //많이 통화하는 편이네요 라고 화면에 출력하기.
+
+      var dailyCallingTime = prompt("하루 통화량이 몇분 정도 되시나요?");
+      if (dailyCallingTime >= 60) {
+        document.write("많이 통화하는 편이시네요!", "<br/>");
+      } else {
+        "적게 통화하시는 편이네요!", "<br/>";
+      }
+
+      var numbeer = prompt("당신이 좋아하는 숫자는?", "0");
+      //num을 2로 나눈 나머지 값이 0과 같다면 = 짝수
+      if (number % 2 == 0) {
+        document.write("당신이 좋아하는 숫자는 짝수네요.", "<br/>");
+      }
+      //else는 자동으로 홀수가 된다.
+      else {
+        document.write("당신이 좋아하는 숫자는 홀수네요.", "<br/>");
+      }
+      /*
+        else 문
+        : if 문의 조건식이 만족하지 않았을 경우 코드를 실행하는 문장.
+
+        [기본형]
+        if(조건식){조건식이 만족했을 경우 실행할 코드;}
+        else{조건식이 만족하지 않을 경우 실행할 코드;}
+
+        -------------------------
+
+        else if()문
+        : else if()문은 두 가지 이상의 조건식과 정해놓은 조건을 만족하지 않았을 경우
+        실행되는 코드로 이루어져있다.
+
+        else if문은 가장 위에 있는 조건식1부터 마지막 조건식 까지 차례로 검사하면서
+        만족하는 값이 나오면 그에 해당하는 코드를 실행하고 조건문을 종료한다.
+        만약 조건식 중 만족하는 값이 없다면 else문의 코드를 실행하고 종료한다.
+
+        [기본형]
+        if(조건식1){ 조건식1이 만족하면 실행할 코드; }
+        else if(조건식2){ 조건식2가 만족하면 실행할 코드; }
+        else if(조건식3){ 조건식3가 만족하면 실행할 코드; }
+        ...
+        else { 모든 조건이 만족하지 않았을 경우 실행할 코드; }
+
+      */
+
+      /*
+        confirm()메서드
+        :confirm()메서드는 확인/취소 창을 말한다.
+        확인 버튼을 누르면 true를 반환하고 취소를 누르면 false를 반환한다.
+
+        [기본형]
+        confirm('메세지');
+      */
+
+      var result = confirm("정말로 탈퇴 하시겠습니까?");
+      document.write(result);
+      // 확인 누르면 true 취소누르면 false가 나온다.
+      if (result) {
+        document.write("회원탈퇴가 완료 되었습니다.", "<br/>");
+      } else {
+        document.write("회원탈퇴가 취소 되었습니다.", "<br/>");
+      }
+
+      var mon = prompt("당신은 몇월에 태어나셨나요?", "0월");
+      if (mon >= 3 + "월" && mon <= 5 + "월") {
+        document.write("꽃피는 봄에 태어나셨군요!", "<br/>");
+      } else if (mon >= 6 + "월" && mon <= 8 + "월") {
+        document.write("햇볕이 따스한 여름에 대어나셨군요!", "<br/>");
+      } else if (mon >= 9 + "월" && mon <= 11 + "월") {
+        document.write("풍성한 계절, 가을에 태어나셨군요!", "<br/>");
+      } else if (mon >= 11 + "월" && mon <= 2 + "월") {
+        document.write("눈처럼 깨끗한 겨울에 태어나셨군요!", "<br/>");
+      } else {
+        document.write(
+          "날짜를 잘못 입력하셨습니다. 다시한번 확인해주세요!",
+          "<br/>"
+        );
+      }
+    </script>
+  </body>
+</html>
