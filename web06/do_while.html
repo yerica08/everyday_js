@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>do while 문</title>
+  </head>
+  <body>
+    <!-- 
+        do while 문
+        : while 문의 경우 조건식의 만족여부를 먼저 검사한 후 중괄호에 있는 코드를 실행 여부를 검사한다.
+        do while 문은 반드시 한 번은 코드를 실행한 후에 조건식을 검사한다.
+
+        [기본형]
+        var 변수 : 초기값;
+        do{
+            자바스크립트 코드;
+            증감식;
+        } 
+        while (조건식)
+    -->
+    <script>
+      "use strict";
+      var i = 10;
+      do {
+        document.write("hello", "<br/>");
+        i--;
+      } while (i < 3);
+      // 잘 안쓴다. 맨 처음에 그냥 실행을 해버리기 때문에 조절할 수 없다.
+    </script>
+  </body>
+</html>

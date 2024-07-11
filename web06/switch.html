@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>선택문</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /*
+            switch문
+            : 선택문인 switch문은 변수의 저장된 값과 switch문에 있는 경우(case)의 값을 검사하여
+            변수와 경우의 값에서 일치하는 값이 있을 때 그에 해당하는 코드를 실행한다.
+            if 문과 용도는 비슷하지만 if 문은 만족하는 데이터가 여러 개일 경우 주로 사용하고,
+            switch문은 여러 경우의 값 중에 일치하는 데이터를 찾아 코드를 실행 할 때 주로 사용한다.
+
+            변수에 저장된 값은 switch문을 만나면 case의 값을 하나씩 검사한다.
+            일치하는 데이터가 있으면 그에 해당하는 코드를 실행하고 break(강제종료)문을 만나서 코드를 종료한다.
+            만약 case 값 중 일치하는 데이터가 없으면 default 문을 실행하고 switch문을 종료한다.
+
+            [기본형]
+            var 변수 = 초깃값;
+            switch(변수){
+                case 값1 : 자바스크립트 코드1;
+                break;
+                case 값2 : 자바스크립트 코드2;
+                break;
+                case 값3 : 자바스크립트 코드3;
+                break;
+                case 값4 : 자바스크립트 코드4;
+                break;
+
+                default : 자바스크립트 코드5;
+            }
+            -- 변수의 초기값과 case의 값이 일치할 때 그 case의 코드를 실행시킨다. 
+               일치하는게 없을 때는 default를 실행히시킨다.
+
+            if 문은 true와 false 값이 있고 조건식이 들어가지만 switch문은 단순히 변수와 일치하냐 안하냐만을 따지고, true/false값이 없다.
+            break 문 : 강제종료문
+        */
+
+      var site = prompt(
+        //줄바꿈을 하고 싶을 때 역슬레시를 쓰면 된다.
+        "네이버, 다음, 구글, 네이트 중 \
+        즐겨 사용하는 포털 사이트는?"
+      );
+      // switch 문 안쪽에는 변수를 선언할 수 없다.
+      var url;
+
+      switch (site) {
+        case "구글":
+          url = "www.google.com";
+          break;
+        case "다음":
+          url = "www.daum.net";
+          break;
+        case "네이버":
+          url = "www.naver.com";
+          break;
+        case "네이트":
+          url = "www.nate.com";
+          break;
+
+        default:
+          alert("보기 중에 존재하지 않는 사이트입니다.");
+      }
+
+      // if문이 성립할 때만 보여줄 거라면 중괄호가 생략되어도 된다.(=else 안쓸거고 한줄짜리다.)
+      // location = 주소창 , href = 주소
+      if (url) location.href = "https://" + url;
+    </script>
+  </body>
+</html>

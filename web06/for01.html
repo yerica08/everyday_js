@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>for 문</title>
+    <!-- css -->
+    <style>
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        for 문 ★★★★★
+        : while문과 마찬가지로 조건식을 만족할 때까지 코드를 반복 실행한다.
+        사용 방법은 while 문과 동일하지만 문법이 더 간단해서 for 문을 가장 많이 사용한다.
+        
+        [기본형]
+        for(초기값; 조건식; 증감식){
+        자바스크립트 코드;
+        }
+
+        실행 순서
+        1. 초기값의 조건식 검사.
+        2. 자바스크립트 코드 실행.
+        3. 증감식 적용.
+        4. 조건식 검사.
+        5. 2번부터 다시 반복.
+    -->
+    <script>
+      "use strict";
+      // 실무 개발자들은 0부터 많이 쓴다. 개발에서 숫자는 0부터 시작이라고 생각.
+      for (var i = 0; i < 10; i++) {
+        document.write(i, "<br/>");
+      }
+      document.write("----------", "<br/>");
+      // 1부터 10까지라고 작성하고 싶을 때
+      for (var i = 0; i < 10; i++) {
+        document.write(i + 1, "<br/>");
+      }
+
+      /* for 문을 이용해서 1부터 100까지의 숫자 중에 5의 배수일 경우 빨간색,
+      7의 배수일 경우 초록색, 5의 배수이면서 7의 배수일 경우 파란색으로 출력. */
+      /* 
+      오류 생길 가능성있음
+      for (var test = 1; test < 101; test++) {
+        if (test % 5 == 0) {
+          if (test % 7 == 0) {
+            document.write('<p class="blue">' + test + "</p>");
+          } else {
+            document.write('<p class="red">' + test + "</p>");
+          }
+        } else if (test % 7 == 0) {
+          document.write('<p class="green">' + test + "</p>");
+        }
+      } */
+
+      for (var test = 1; test <= 100; test++) {
+        if (test % 5 == 0 && test % 7 != 0) {
+          //5의 배수면 빨간색으로 출력한다.
+          document.write('<p class="red">' + test + "</p>");
+        } else if (test % 7 == 0 && test % 5 != 0) {
+          //7의 배수면 초록색으로 출력한다.
+          document.write('<p class="green">' + test + "</p>");
+        } else if (test % 5 == 0 && test % 7 != 0) {
+          //5와 7의 배수면 파란색으로 출력한다.
+          document.write('<p class="blue">' + test + "</p>");
+        }
+      }
+    </script>
+  </body>
+</html>
