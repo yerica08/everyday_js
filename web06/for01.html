@@ -49,8 +49,7 @@
 
       /* for 문을 이용해서 1부터 100까지의 숫자 중에 5의 배수일 경우 빨간색,
       7의 배수일 경우 초록색, 5의 배수이면서 7의 배수일 경우 파란색으로 출력. */
-      /* 
-      오류 생길 가능성있음
+
       for (var test = 1; test < 101; test++) {
         if (test % 5 == 0) {
           if (test % 7 == 0) {
@@ -61,7 +60,7 @@
         } else if (test % 7 == 0) {
           document.write('<p class="green">' + test + "</p>");
         }
-      } */
+      }
 
       for (var test = 1; test <= 100; test++) {
         if (test % 5 == 0 && test % 7 != 0) {
@@ -70,7 +69,7 @@
         } else if (test % 7 == 0 && test % 5 != 0) {
           //7의 배수면 초록색으로 출력한다.
           document.write('<p class="green">' + test + "</p>");
-        } else if (test % 5 == 0 && test % 7 != 0) {
+        } else if (test % 5 == 0 && test % 7 == 0) {
           //5와 7의 배수면 파란색으로 출력한다.
           document.write('<p class="blue">' + test + "</p>");
         }

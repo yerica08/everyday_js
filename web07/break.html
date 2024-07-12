@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break문</title>
+  </head>
+  <body>
+    <!-- 
+        break문
+        : 반복문인 while 문이나 for 문에서 
+        조건식과 관계없이 강제로 반복문을 종료하고 싶을 때 break 문을 사용한다.
+        보통 어떤 조건이 만족하면 강제 종료하라는 식으로 많이 사용한다.
+        즉, 조건문인 if문과 함께 많이 사용된다.
+
+        [기본형]
+        1. while 문
+        var 변수 = 초깃값;
+        while(조건식){
+            break;
+            자바스크립트 코드;
+            증감식; 
+        }
+
+        2. for 문
+        for (초깃값; 조건식; 증감식){
+            break;
+            자바스크립트 코드;
+        }
+    -->
+    <script>
+      for (var i = 0; i < 101; i++) {
+        if (i == 60) break;
+        document.write(i);
+      }
+    </script>
+  </body>
+</html>

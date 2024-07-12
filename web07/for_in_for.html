@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중첩 for 문</title>
+    <!-- css -->
+    <style>
+      table {
+        border-collapse: collapse;
+        border: 2px solid black;
+        text-align: center;
+        font-size: 20px;
+      }
+      td {
+        padding: 10px;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        중첩 for문
+        : for문 안에 for문이 들어있으면 중첩 for문이라고 한다.
+        자바스크립트가 중첩 for문을 만나면 바깥쪽 for문의 초깃값과 조건식을 먼저 검사한다.
+        이후 조건식이 만족되면 안쪽 for문의 초깃값과 조건식을 검사하고,
+        조건식이 true에서 false가 될 때까지 반복한다.
+        그 다음 안쪽 for문의 조건식이 false가 되면 바깥쪽 for문의 증감식을 실행하고
+        다시 조건식을 검사한다.
+        바깥쪽 for문의 조건식이 만족하면 다시 안쪽 for문의 초깃값과 조건식을 처음부터 다시 검사하고,
+        또 조건식이 true에서 false가 될 때까지 반복한다.
+        이 과정을 바깥쪽 for문이 false가 될 때까지 반복한다.
+
+        [기본형]
+        for(초깃값; 조건식; 증감식){      -> 바깥쪽 for문
+            for(초깃값; 조건식; 증감식{   -> 안쪽 for문
+                자바스크립트 코드;
+            }
+        }
+    -->
+    <!-- 3행 2열 표 -->
+    <!-- 
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table> 
+    -->
+    <script>
+      "use strict";
+      document.write("<table>");
+      for (var i = 1; i <= 3; i++) {
+        document.write("<tr>");
+        for (var k = 1; k <= 2; k++) {
+          document.write("<td>", i + "행" + k + "열", "</td>");
+        }
+        document.write("</tr>");
+      }
+      document.write("</table>");
+
+      document.write("<br/>");
+
+      //5행 5열 표
+      var num = 1;
+      var t = "<table>";
+
+      for (var i = 1; i <= 5; i++) {
+        t += "<tr>";
+        for (var k = 1; k <= 5; k++) {
+          t += "<td>" + num + "</td>";
+          num++;
+        }
+        t += "</tr>";
+      }
+      t += "</table>";
+      document.write(t);
+
+      // table +(tr + (td + num + /td)*5 + /tr)*5 + /table
+
+      // for문을 활용하여 구구단 중 5단을 출력하기.
+      for (var i = 1; i <= 9; i++) {
+        document.write("5 x " + i + " = " + i * 5, "<br/>");
+      }
+
+      for (var i = 5; i == 5; i++) {
+        for (var k = 1; k <= 9; k++) {
+          document.write(i + " x " + k + " = " + i * k, "<br/>");
+        }
+      }
+      //5(n)xi=k
+    </script>
+  </body>
+</html>

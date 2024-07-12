@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>continue문</title>
+  </head>
+  <body>
+    <!-- 
+        continue
+        : contunue 문은 반복문에서만 사용할 수 있다.
+        while 문에서 continue 문을 사용할 경우 continue 문 다음에 오는 코드는 무시하고
+        바로 조건식으로 가서 조건 검사를 한다.
+        즉, while 문에서 continue 문은 '다음 코드는 무시하고 조건 검사를 해라!'
+        라는 의미이다.
+
+        for 문에서 사용할 경우 continue 문 다음에 오는 코드는 무시하고 바로 증감식을 실행한다.
+        즉, for 문에서 continue 문은 '다음 코드는 무시하고 증감식을 실행해라!'라는 의미이다.
+
+        continue 문은 '다음 코드를 무시해라'라는 뜻이기 때문에 보통 조건문과 함께 사용되는데
+        조건문과 함께 사용 될 경우는 '~ 조건일때, 다음에 오는 코드를 무시해라'라는 의미이다.
+
+        [기본형]
+        1. while문
+        var 변수 = 초깃값;
+        while(조건식){
+            증감식;
+            continue;
+            자바스크립트 코드;
+        }
+
+        2. for문
+        for(초깃값; 조건식; 증감식){
+            continue;
+            자바스크립트 코드;
+        }
+    -->
+    <script>
+      "use strict";
+      for (var i = 1; i <= 9; i++) {
+        if (i % 3 == 0) continue;
+        document.write(i, "<br/>");
+      }
+    </script>
+  </body>
+</html>
