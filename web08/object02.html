@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>날짜 객체</title>
+  </head>
+  <body>
+    <!-- 
+        날짜 정보 객체(Date)
+        : 날짜나 시간 관련 정보를 제공받고 싶을 때 날짜 객체(Date)를 생성한다.
+        날짜 정보 객체는 날짜와 관련된 작업을 할 때 유용한 객체이다.
+        날짜 정보 객체를 이용하면 블로그 게시글의 날짜, 시간 또는 댓글의 생성 시간을 나타내거나 d-day 계산기 같은 것을 만들 수 있다.
+
+        [기본형]
+        1. var 참조변수 = new Date();
+        : 오늘 날짜에 대한 정보를 얻을 때 사용한다.
+
+        2. var 참조변수 = new Date("연도/월/일");     // 문자열인 경우
+           var 참조변수 = new Date(연도, 월-1, 일);   // 숫자인 경우
+        : 특정 날짜에 대한 정보를 얻을 때 사용한다.
+          만약 날짜 계산을 해야 한다면 숫자 형식의 객체 문법을 사용하고, 숫자는 0월부터 시작하여 11월 까지 있다.
+
+        -------------------------------------------------------------------------
+
+        날짜 관련 메서드
+        : 날짜 관련 메서드는 
+        날짜의 정보를 가져오는 GET 메서드와
+        날짜의 정보를 수정하는 SET 메서드로 나눠진다.
+
+        [GET]
+        1. getFullYear() : 연도
+        2. getMonth() : 월 // 월 -1된 값으로 출력된다.
+        3. getDate() : 일
+        4. getDay() : 요일  // 0~6까지로 가져온다. 0이 일요일, 6이 토요일
+        5. getHours() : 시 
+        6. getMinutes() : 분 
+        7. getSeconds() : 초 
+        8. getMilliSeconds : 밀리초 (1/1000s) //자바스크립트에서는 초를 잘 안쓰고 밀리초를 많이 쓴다. 정확도가 올라가기 때문에
+        9. getTime() : 1971년 1월 1일 부터 경과된 시간을 밀리초로 표기한다. //이때부터 국제 표준시가 바꼈다..? 그래서 많이 쓰지는 않지만 쓰긴한다.
+        10. toGMTString() : GMT표준 표기 방식으로 문자형 데이터로 시간을 반환한다.
+
+        [SET]
+        1. setFullYear() : 연도
+        2. setMonth() : 월
+        3. setDate() : 일
+        4. 요일은 일 정보가 바뀌면 같이 수정되기 때분에 Set 메서드는 없다. 요일정보를 수정하고 싶으면 날짜를 수정하면 된다.
+        5. setHours() : 시 
+        6. setMinutes() : 분 
+        7. setSeconds() : 초 
+        8. setMilliSeconds : 밀리초 (1/1000s)
+        9. setTime() : 1971년 1월 1일 부터 경과된 시간을 밀리초로 수정한다.
+        10. toLocaleString() : 운영 시스템 표기 방식으로 문자형 데이터로 반환한다.
+    -->
+    <script>
+      "use strit";
+      // 현재 날짜 정보 객체
+      var today = new Date();
+      var nowYear = today.getFullYear();
+      var nowMonth = today.getMonth();
+      var nowDate = today.getDate();
+      var nowDay = today.getDay();
+
+      /*switch (nowDay) {
+        case 0:
+          nowDay = "일요일";
+          break;
+        case 1:
+          nowDay = "월요일";
+          break;
+        case 2:
+          nowDay = "화요일";
+          break;
+        case 3:
+          nowDay = "수요일";
+          break;
+        case 4:
+          nowDay = "목요일";
+          break;
+        case 5:
+          nowDay = "금요일";
+          break;
+        case 6:
+          nowDay = "토요일";
+          break;
+
+        default:
+          "일치하는 요일이 없습니다.";
+      }*/
+
+      if (nowDay == 1) nowDay = "월요일";
+
+      document.write("<h2>오늘 날짜는?</h2>");
+      //   document.write(today + "<br/>");
+      document.write(nowYear + "-" + (nowMonth + 1) + "-" + nowDate + "<br/>");
+      document.write("현재 월 : " + (nowMonth + 1) + "월", "<br/>");
+      document.write("현재 일 : " + nowDate + "일", "<br/>");
+      document.write("현재 요일 : " + nowDay, "<br/>");
+
+      //--------------------------------------------
+
+      var worldCup = new Date(2002, 4, 31);
+      var theYear = worldCup.getFullYear();
+      var theMonth = worldCup.getMonth();
+      var theDate = worldCup.getDate();
+      var theDay = worldCup.getDay();
+
+      var tDay;
+      switch (theDay) {
+        case 0:
+          tDay = "일요일";
+          break;
+        case 1:
+          tDay = "월요일";
+          break;
+        case 2:
+          tDay = "화요일";
+          break;
+        case 3:
+          tDay = "수요일";
+          break;
+        case 4:
+          tDay = "목요일";
+          break;
+        case 5:
+          tDay = "금요일";
+          break;
+        case 6:
+          tDay = "토요일";
+          break;
+
+        default:
+          "일치하는 요일이 없습니다.";
+      }
+
+      document.write("<h2>2002년 월드컵 날짜는?</h2>");
+      //   document.write(worldCup + "<br/>");
+      document.write(theYear + "-" + theMonth + "-" + theDate, "<br/>");
+      document.write("현재 월 : " + theMonth, "<br/>");
+      document.write("현재 일 : " + theDate, "<br/>");
+      document.write("현재 요일 : " + tDay, "<br/>");
+
+      //12월 31일까지 d-day 계산기
+      /*
+        d-day 계산 공식 : 남은 일 수(밀리초) = 특정 날짜 객체 - 현재 날짜 객체
+        ----------------------------------
+        [시간을 날짜로 바꾸는 방법]
+        1초 = 1,000(msc)
+        1분(60초) = 1,000 * 60
+        1시간(60분) = 1,000 * 60 * 60
+        1일(24시간) = 1,000 * 60 * 60 * 24
+        ----------------------------------
+      */
+      document.write("<h2>연말까지 남은 날짜는?</h2>");
+      var lastDay = new Date(nowYear, 11, 31);
+      var diffday = lastDay.getTime() - today.getTime();
+      var result = Math.ceil(diffday / 1000 / 60 / 60 / 24);
+      document.write("오늘부터 연말까지 " + result + "일 남았습니다.", "<br/>");
+
+      document.write("<h2>종강까지 남은 날짜는?</h2>");
+      var lastClass = new Date(nowYear, 9, 7);
+      var classDiffDay = lastClass.getTime() - today.getTime();
+      var result2 = Math.ceil(classDiffDay / 1000 / 60 / 60 / 24);
+      document.write("종강일까지 " + result2 + "일 남았습니다.", "<br/>");
+    </script>
+  </body>
+</html>
