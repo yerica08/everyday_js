@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.write("<h2><가위 바위 보 게임></h2>");
+
+      // 사용자 답
+      var game = prompt("가위, 바위, 보!");
+      var gameNum;
+      switch (game) {
+        case "가위":
+          gameNum = 1;
+          break;
+        case "바위":
+          gameNum = 2;
+          break;
+        case "보":
+          gameNum = 3;
+          break;
+        default:
+          alert("잘.못.입.력");
+          location.reload();
+      }
+      //컴퓨터 결과
+      var com = Math.ceil(Math.random() * 3);
+      switch (com) {
+        case 1:
+          comGame = "가위";
+          break;
+        case 2:
+          comGame = "바위";
+          break;
+        case 3:
+          comGame = "보";
+          break;
+      }
+      //선택1
+      var gameNext = confirm("정말 이대로 진행하시겠어요?");
+      var gameBack;
+      //게임 그대로 진행
+      if (gameNext) {
+        gameNext2 = confirm("과연 이겼을까요? 한번 맞춰 보시겠어요?");
+      }
+      //다시 선택
+      else {
+        alert("무조건 선택하셔야 합니다. 다시^^");
+        location.reload();
+      }
+      //승패 선택 게임
+      var answer;
+      var answer2;
+      if (gameNext2) {
+        answer = prompt("이긴다, 진다, 비긴다!");
+      }
+      switch (answer) {
+        case "이긴다":
+          answer = "이겼습니다!";
+          break;
+        case "진다":
+          answer = "졌습니다ㅠㅠ 다음기회를 노려보세요!";
+          break;
+        case "비긴다":
+          answer = "비기셨습니다.";
+          break;
+      }
+
+      if (
+        (com == 1 && gameNum == 1) ||
+        (com == 2 && gameNum == 2) ||
+        (com == 3 && gameNum == 3)
+      ) {
+        result = "비기셨습니다.";
+      } else if (
+        (com == 1 && gameNum == 2) ||
+        (com == 2 && gameNum == 3) ||
+        (com == 3 && gameNum == 1)
+      ) {
+        result = "이겼습니다!";
+      } else if (
+        (com == 1 && gameNum == 3) ||
+        (com == 2 && gameNum == 1) ||
+        (com == 3 && gameNum == 2)
+      ) {
+        result = "졌습니다ㅠㅠ 다음기회를 노려보세요!";
+      }
+
+      if (result == answer) {
+        result2 = "맞추셨습니다^^";
+      } else {
+        result2 = "틀리셨습니다ㅠㅠ";
+      }
+
+      document.write(
+        "<h3> 가위, 바위, 보! </h3>",
+        "당신의 대답 : " + game,
+        "<br/>",
+        "컴퓨터 대답 : " + comGame,
+        "<br/>",
+        "<h3> 결과는? </h3>",
+        result,
+        "<br/>",
+        "<h3> 오 결과를?</h3>",
+        result2
+      );
+    </script>
+  </body>
+</html>

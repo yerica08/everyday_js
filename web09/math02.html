@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤 추첨기</title>
+  </head>
+  <body>
+    <!-- 
+        랜덤 메서드를 사용하면 0 ~ 1 사시의 난수가 발생한다.
+        만약 0~1 사이가 아닌 임의로 지정된 구간에 숫자를 실수가 아닌 정수로 반환받고 싶다면
+        아래 공식을 이용한다.
+
+        ex1) 0 ~ 10 사이의 난수를 실수로 반환받고 싶을 때
+            Math.random()*10
+        
+        ex2) 0 ~ 10 사이의 난수를 정수로 반환받고 싶을 때
+        만약 0부터 10까지의 정수로 난수를 반환받고 싶다면 math.floor()를 이용한다. 
+        floor()메서드는 값을 내리기 때문에 10이 아닌 11을 사용한다.
+            Math.floor(Math.random()*11)
+
+        ex3) 120~150 사이의 난수를 정수로 반환받고 싶을 때
+        Math.random()을 이용해서 120~150사이의 난수를 정수로 반환받으려면
+        이런 공식을 사용한다.
+            Math.floor(Math.random()*31)+120
+    -->
+    <script>
+      "use strict";
+      var num;
+      //   document.write(Math.random() * 10);
+      document.write(Math.floor(Math.random() * 11), "<br/>");
+      document.write(Math.round(Math.random() * 10), "<br/>");
+      document.write(Math.floor(Math.random() * 31) + 120, "<br/>");
+      document.write("-------------------", "<br/>");
+
+      // 방문자로부터 가위, 바위, 보를 추측해서 맞추는 게임
+      document.write("<h2>가위 바위 보</h2>");
+
+      var game = prompt("가위, 바위, 보!");
+      var gameNum;
+
+      switch (game) {
+        case "가위":
+          gameNum = 1;
+          break;
+        case "바위":
+          gameNum = 2;
+          break;
+        case "보":
+          gameNum = 3;
+          break;
+        default:
+          alert("잘못 작성하셨습니다.");
+          location.reload();
+      }
+      var com = Math.ceil(Math.random() * 3);
+      var comGame;
+      switch (com) {
+        case 1:
+          comGame = "가위";
+          break;
+        case 2:
+          comGame = "바위";
+          break;
+        case 3:
+          comGame = "보";
+          break;
+      }
+      document.write(
+        "사용자 : " + game,
+        "<br/>",
+        "컴퓨터 : " + comGame,
+        "<br/>"
+      );
+      if (
+        (com == 1 && gameNum == 1) ||
+        (com == 2 && gameNum == 2) ||
+        (com == 3 && gameNum == 3)
+      ) {
+        document.write("비기셨습니다.");
+      } else if (
+        (com == 1 && gameNum == 2) ||
+        (com == 2 && gameNum == 3) ||
+        (com == 3 && gameNum == 1)
+      ) {
+        document.write("이겼습니다!");
+      } else if (
+        (com == 1 && gameNum == 3) ||
+        (com == 2 && gameNum == 1) ||
+        (com == 3 && gameNum == 2)
+      ) {
+        document.write("졌습니다ㅠㅠ 다음기회를 노려보세요!");
+      }
+    </script>
+  </body>
+</html>
