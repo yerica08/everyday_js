@@ -39,10 +39,15 @@
       document.write(data1, "<br/>");
 
       //반복문과 함께 사용하기
-      //length 데이터의 총 개수
-      //0부터 시작하기 때문에 <=를 쓰면 안된다.
+      //length 배열안 데이터의 총 갯수
+      //인덱스 번호는 0부터 시작하기 때문에 <=(이상)말고 <(초과)를 써야한다.
       for (var i = 0; i < arr1.length; i++) {
         document.write(arr1[i], "<br/>");
+      }
+
+      var arr2 = ["하이", true, 10, 41, "780", "안녕", "김땡땡", false];
+      for (var i = 0; i < arr.length; i++) {
+        document.write(arr2[i], "<br/>");
       }
     </script>
   </body>

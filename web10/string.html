@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문자열 객체</title>
+  </head>
+  <body>
+    <!-- 
+        문자열 객체(String Object)
+        : 문자열 객체는 문자형 데이터를 객체로 취급하는 것을 말한다.
+        자바스크립트에서 가장 많이 사용된다.
+        문자형 데이터 == 문자열 객체
+        문자형 데이터는 배열과 마찬가지로 첫번째 글자부터 인덱스 번호를 0번부터 부여받는다.
+        이 인덱스 번호를 이용하면 특정 문자 구간을 잘라내거나 추가하는 등
+        다양하게 활용할 수 있다.
+
+        문자열 객체의 메서드 및 속성
+        1. charAt(index) ★
+        : 문자열에서 인덱스 번호에 해당하는 '문자'를 반환한다.
+
+        2. indexOf('찾을 문자') ★★
+        : 문자열 왼쪽부터 찾을 문자와 일치하는 문자를 찾아서 
+        제일 먼저 일치하는 문자의 index 번호를 반환한다.
+        만약 일치하는 문자가 없을 경우 -1을 반환한다.
+
+        3. lastIndexOf('찾을 문자') ★
+        : 문자열 오른쪽부터 찾을 문자와 일치하는 문자를 찾아서 제일 먼저 일치하는 문자의
+        인덱스 번호를 반환한다.
+        만약 일치하는 문자가 없으면 -1을 반환한다.
+
+        4. match('찾을 문자')
+        : 문자열 왼쪽부터 찾을 문자와 일치하는 문자를 찾아서 제일 먼저 일치하는 문자의
+        인덱스 번호를 반환한다. 일치하는 문자가 없으면 null을 반환한다.
+        결과값이 수로 나오면 다른 코드와 함께 짤 때 쉽지만 null은 어렵기 때문에 잘 사용하지 않는다.
+
+        5. replace('바꿀 문자', '새 문자') ★
+        : 문자열 왼쪽부터 바꿀 문자와 일치하는 문자를 찾아서 
+        제일 먼저 찾은 문자를 새 문자로 치환한다.
+
+        6. search('찾을 문자')
+        : 문자열 왼쪽부터 찾을 문자와 일치하는 문자를 찾아서 제일 먼저 일치하는 문자의
+        인덱스 번호를 반환한다. 일치하는 문자가 없을 경우 아무런 값을 반환하지 않는다.
+
+        7. slice(a, b)??
+        : a개의 문자를 자르고 b번째 이후의 문자를 자른 후 남은 문자를 반환한다.
+        잘 쓰이지는 않는다.
+
+        8. substring(a, b)★
+        : a인덱스 구간부터 b인덱스 앞에 있는 문자까지를 반환한다.
+
+        9. substr(a, 문자갯수)?? ☆
+        : 문자열에서 a인덱스 부터 지정한 문자 갯수만큼 잘라 문자열을 반환한다.
+
+        10. split('문자') ★★
+        : 지정한 문자를 기준으로 문자 데이터를 나눠서 배열에 저장하여 반환한다. 
+
+        11. toLowerCase()
+        : 문자열 안에 있는 대문자를 모두 소문자로 바꾼다.
+
+        12. toUpperCase()
+        : 문자열 안에 있는 소문자를 모두 대문자로 바꾼다.
+
+        13. length()
+        : 문자열에서 문자의 개수를 반환한다. 공백과 기호도 개수에 포함된다.
+        
+        14. concat('새로운 문자')
+        : 문자열에 새로운 문자를 결합한다.
+
+        15. charCodeAt(index)
+        : 문자열 index에 해당하는 아스키 코드 값을 반환한다.
+
+        16. fromCharCode(아스키 코드 값)
+        : 아스키 코드 값에 해당하는 문자를 반환한다.
+
+        17. trim()
+        : 문자의 앞이나 뒤에 붙은 공백 문자열을 삭제한다.
+    -->
+    <script>
+      "use strict";
+      var str = "Hello Thank you good luck to you";
+
+      document.write(str.charAt(16), "<br/>"); //g
+
+      //결과 : 12, y에 해당하는 인덱스번호가 출력된다.
+      document.write(str.indexOf("you"), "<br/>");
+      //결과 : 29, 뒤쪽  you의 y에 해당하는 인덱스 번호가 출력된다.
+      document.write(str.lastIndexOf("you"), "<br/>");
+      //결과 : 29, 16번째 이후의 인덱스 중에서 you의 y에 해당하는 인덱스 번호가 출력된다.
+      document.write(str.indexOf("you", 16), "<br/>");
+      //결과 : 12, 16번째 이전의 인덱스 중에서 you의 y에 해당하는 인덱스 번호가 출력된다.
+      document.write(str.lastIndexOf("you", 16), "<br/>");
+      //결과 : null, 없는 값
+      document.write(str.match("lol"), "<br/>");
+      //결과 : Hello Thank me good luck to you, 맨 처음 발견한 you를 me로 바꾼다.
+      document.write(str.replace("you", "me"), "<br/>");
+      //결과 : thank, 6번 인덱스부터 11인덱스까지 잘라내서 출력한다.
+      document.write(str.substring(6, 12), "<br/>");
+      //결과 : HELLO THANK YOU GOOD LUCK TO YOU
+      document.write(str.toUpperCase(), "<br/>");
+      //결과 : hello thank you good luck to you
+      document.write(str.toLowerCase(), "<br/>");
+
+      //결과 : Hello, 공백을 기준으로 문자를 잘라서 배열로 result에 들어갔기 때문에 0번 인덱스가 Hello로 출력된다.
+      var result = str.split(" ");
+      document.write(result[0], "<br/>");
+      //결과 : 7
+      document.write(result.length, "<br/>");
+      //결과 : 32, 공백을 포함해서 총 32개의 문자가 들어있음.
+      document.write(str.length, "<br/>");
+      var trimstr = "   hello   ";
+      console.log(trimstr);
+      console.log(trimstr.trim());
+      document.write(trimstr.trim());
+    </script>
+  </body>
+</html>
