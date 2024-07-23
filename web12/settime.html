@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>일정한 시간 간격으로 코드 실행하기</title>
+  </head>
+  <body>
+    <!-- 
+        일정한 시간 간격으로 코드 실행하기
+        : 일정한 시간 간격으로 코드를 실행하는 함수로 setInterval()메서드와 setTimeout()메서드가 있다.
+        setInterval()은 일정한 시간 간격으로 코드를 반복 실행하고,
+        setTimeout()는 일정한 시간이 흐른 후에 코드를 한번 실행하고 종료한다.
+
+        [기본형]
+        1. var 참조 변수 = setinterval(function(){자바스크립트 코드}, 시간간격);
+        2. var 참조 변수 = setTimeout(function(){자바스크립트 코드}, 시간간격);
+        시간간격은 밀리세컨드(ms)가 기준이다.
+
+        --------------------------------------
+
+        setInterval()의 반복 실행을 멈추고 싶을 때
+        : setInterval()의 반복실행을 멈추고 싶을 때에는 clearInterval()메서드를 이용한다.
+        clearInterval()의 소괄호에 setInterval()을 실행하고 있는 참조변수의 이름을 넣으면 해당 반복실행을 종료할 수 있다.
+
+        [기본형]
+        clearInterval(참조변수)
+
+        ---------------------------------------
+
+        setTimeout()의 반복 실행을 멈추고 싶을 때
+        : setTimeout()은 원래 정해진 시간 이후에 한 번 코드를 실행하고 자동 종료하지만,
+        조금만 응용하면 원하는 횟수만큼 재귀호출하여 반복실행하게 만들 수 있다.
+        이때 횟수를 충족했을 경우 setTimeout()을 멈추고 싶다면 clearTimeout()메서드를 이용한다.
+        clearTimeout()의 소괄호에 setTimeout()을 실행하고 있는 참조변수의 이름을 넣으면 해당 반복실행을 종료할 수 있다.
+
+        [기본형]
+        clearTimeout(참조변수)
+    -->
+    <script>
+      "use strict";
+      var addNumber = 0;
+      var subNumber = 1000;
+
+      // 1초마다 addNumber를 1씩 증가시킨다.
+      var auto1 = setInterval(function () {
+        addNumber++;
+        console.log("addNumber : " + addNumber);
+      }, 1000);
+
+      // 1초마다 subNumber를 1씩 감소시킨다.
+      var auto2 = setInterval(function () {
+        if (subNumber > 990) {
+          subNumber--;
+          console.log("subNumber : " + subNumber);
+        }
+      }, 1000);
+    </script>
+    <!-- onlick은 클릭했을때 일어나는 이벤트를 말한다. a태그에는 기본적으로 내장되어있다.-->
+    <button type="button" onclick="clearInterval(auto1)">addNumber 정지</button>
+    <button type="button" onclick="clearInterval(auto2)">subNumber 정지</button>
+
+    <script>
+      var addNumber2 = 0;
+      var auto3 = setTimeout(function () {
+        addNumber2++;
+        console.log("addNumber2 : " + addNumber2);
+      }, 3000);
+    </script>
+  </body>
+</html>
