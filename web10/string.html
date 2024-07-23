@@ -84,30 +84,41 @@
 
       //결과 : 12, y에 해당하는 인덱스번호가 출력된다.
       document.write(str.indexOf("you"), "<br/>");
+
       //결과 : 29, 뒤쪽  you의 y에 해당하는 인덱스 번호가 출력된다.
       document.write(str.lastIndexOf("you"), "<br/>");
+
       //결과 : 29, 16번째 이후의 인덱스 중에서 you의 y에 해당하는 인덱스 번호가 출력된다.
       document.write(str.indexOf("you", 16), "<br/>");
+
       //결과 : 12, 16번째 이전의 인덱스 중에서 you의 y에 해당하는 인덱스 번호가 출력된다.
       document.write(str.lastIndexOf("you", 16), "<br/>");
+
       //결과 : null, 없는 값
       document.write(str.match("lol"), "<br/>");
+
       //결과 : Hello Thank me good luck to you, 맨 처음 발견한 you를 me로 바꾼다.
       document.write(str.replace("you", "me"), "<br/>");
+
       //결과 : thank, 6번 인덱스부터 11인덱스까지 잘라내서 출력한다.
       document.write(str.substring(6, 12), "<br/>");
+
       //결과 : HELLO THANK YOU GOOD LUCK TO YOU
       document.write(str.toUpperCase(), "<br/>");
+
       //결과 : hello thank you good luck to you
       document.write(str.toLowerCase(), "<br/>");
 
       //결과 : Hello, 공백을 기준으로 문자를 잘라서 배열로 result에 들어갔기 때문에 0번 인덱스가 Hello로 출력된다.
       var result = str.split(" ");
       document.write(result[0], "<br/>");
+
       //결과 : 7
       document.write(result.length, "<br/>");
+
       //결과 : 32, 공백을 포함해서 총 32개의 문자가 들어있음.
       document.write(str.length, "<br/>");
+
       var trimstr = "   hello   ";
       console.log(trimstr);
       console.log(trimstr.trim());

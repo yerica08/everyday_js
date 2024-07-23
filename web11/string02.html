@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string 객체 연습</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      //사용자로부터 핸드폰번호를 입력 받은 후 정보가 노출되지 않도록 뒷 네자리를 ****로 표시해주세요.
+      var phoneNum = prompt("핸드폰 번호를 입력해주세요.", "010-1234-1234");
+      //   document.write(phoneNum.length);
+      //방법 1
+      document.write(phoneNum.substring(0, 9) + "****", "<br/>");
+      //방법 2
+      document.write(phoneNum.slice(0, 9) + "****", "<br/>");
+      //방법 3
+      var phone = phoneNum.substring(0, phoneNum.length - 4);
+      document.write(phone + "****", "<br/>");
+    </script>
+  </body>
+</html>

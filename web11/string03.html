@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이메일 유효성 검사</title>
+  </head>
+  <body>
+    <script>
+      // 골뱅이가 있느냐, 유효한 url을 포함하고 있느냐.
+      var userEmail = prompt("이메일을 입력하세요.", "1234@naver.com");
+      var arrUrl = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+
+      var check1 = false;
+      var check2 = false;
+
+      if (userEmail.indexOf("@") > 0) {
+        check1 = true;
+      }
+      for (var i = 0; i < arrUrl.length; i++) {
+        if (userEmail.indexOf(arrUrl[i]) > 0) {
+          check2 = true;
+        }
+      }
+      if (check1 && check2) {
+        document.write(userEmail + "님 인증 완료되었습니다.");
+      } else {
+        alert("이메일 형식이 잘못되었습니다.");
+        location.reload;
+      }
+    </script>
+  </body>
+</html>
