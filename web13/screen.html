@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>screen 객체</title>
+  </head>
+  <body>
+    <!-- 
+        screen 객체
+        : screen 객체는 사용자의 모니터 정보(속성)을 제공하는 객체로
+        모니터의 넓이나 높이 또는 컬러 표현 bit를 반환한다.
+
+        [기본형]
+        screen.속성;
+
+        [속성 종류]
+        - screen.width : 화면의 너비값을 반환한다.
+        - screen.height : 화면의 높이값을 반환한다.
+        - screen.availWidth : 작업표시줄을 제외한 화면의 너비값을 반환한다.
+        - screen.availHeight : 작업표시줄을 제외한 화면의 높이값을 반환한다.
+        - screen.colorDepth : 사용자의 모니터가 표현 가능한 컬러 bit를 반환한다.
+    -->
+    <script>
+      console.log(screen.width);
+      console.log(screen.height);
+      console.log(screen.availWidth);
+      console.log(screen.availHeight);
+      console.log(screen.colorDepth);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>history 객체</title>
+  </head>
+  <body>
+    <!-- 
+        history
+        : history 객체는 사용자가 방문한 사이트의 기록을 남기고,
+        이전 방문 사이트와 다음 방문 사이트로 다시 돌아갈 수 있는 속성과 메서드를 제공한다.
+
+        [기본형]
+        history.속성;
+        history.메서드();
+        history.메서드(숫자);
+
+        [속성 및 메서드]
+        - history.back(숫자) : 이전 방문 사이트로 이동한다.
+                               만약 인수자리에 숫자가 없으면 1단계 이전 방문 사이트로 이동한다.
+        - history.foward(숫자) : 다음 방문 사이트로 이동한다.
+                               만약 인수자리에 숫자가 없으면 1단계 다음 방문 사이트로 이동한다.
+        - history.go(숫자) : 인수 자리에 음수나 양수를 넣을 수 있다.
+                             음수를 넣으면 해당 숫자만큼 이전 방문 사이트로 이동하고 
+                             양수가 들어가면 다음 방문 사이트로 들어간다.
+        - history.length : 방문기록에 저장된 목록의 갯수를 반환한다.
+    -->
+    <script>
+      document.write("방문기록 총 개수는?" + history.length);
+    </script>
+  </body>
+</html>
