@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>let</title>
+  </head>
+  <body>
+    <!-- 
+        let
+        : 변수를 만드는 새로운 키워드로 재할당은 가능하지만 재선언은 불가능한 변수를 만드는 키워드이다.
+        그렇기 때문에 var 변수처럼 이름이 중복되어 코드의 에러를 발생시킬 일이 없다.
+        let으로 만든 변수는 호이스팅이 없다.
+        var 예약어를 사용한 변수는 선언하기 전에 실행하더라도 이전에 할당되지 않은 자료형인 undefined 값을 가질 수 있다.
+        이것은 바로 호이스팅 때문이다.
+        하지만 let 예약어를 사용한 변수는 선언하기 전에 사용할 경우 오류 메세지를 나타낸다.
+
+        [기본형]
+        let 변수명;
+        let 변수명 = 값;
+    -->
+    <script>
+      clacSum();
+      function clacSum() {
+        let sum = 0;
+        for (let i = 1; i <= 100; i++) {
+          sum += i;
+        }
+        sum = 100; //재할당 가능
+        console.log(sum);
+        // let sum = 12; //재선언 불가능!
+      }
+      let sum = 0; //함수 바깥에서 선언하였으므로 선언가능
+
+      // --------------------
+
+      //   function displayNum() {
+      //     console.log("x is :" + x);
+      //     console.log("z is :" + z);
+      //     console.log("y is :" + y); //이전에 선언된 적이 없었다는 오류
+      //     var x;
+      //     let y = 2; // 이 오류를 위의 console.log 위쪽으로 올리면 오류가 나지 않는다.
+      //   }
+      //   //전역함수
+      //   let z;
+      displayNum();
+      function displayNum() {
+        console.log("d is :" + d); //이전에 선언된 적이 없었다는 오류
+        console.log("a is :" + a);
+        console.log("b is :" + b);
+        console.log("c is :" + c);
+
+        var b = 5;
+        let d = 7; // 이 오류를 위의 console.log 위쪽으로 올리면 오류가 나지 않는다.
+      }
+      //전역함수
+      var a = 1;
+      let c = 3;
+    </script>
+  </body>
+</html>

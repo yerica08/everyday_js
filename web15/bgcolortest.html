@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배경색을 바꾸는 버튼</title>
+    <style>
+      .area {
+        width: 300px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body id="bg">
+    <!-- 
+        버튼을 누를 때 마다 배열에 있는 색상으로 배경색이 바뀌는 기능 만들기
+
+        자바스크립트에서 아이디선택자 선택하기
+        : 자바스크립트에서 html의 태그 중 id가 있는 태그를 선택하고 싶을 때 사용한다.
+        getElementById는 이름에서 알 수 있듯이 id 선택자임을 지칭하고 있기 때문에 메서드 소괄호에 #붙이지 않는다.
+
+        [기본형]
+        document.getElementById(아이디명)
+
+        자바스크립트에서 css에 접근하기
+        : 자바스크립트로 CSS의 특정 속성을 제어하고 싶다면 먼저 CSS에 접근을 해야한다.
+        이때 접근하는 방법은 document 객체에 포함되어있는 .style이라는 속서을 사용하는 것이다.
+        .style은 속성이기 때문에 값은 따로 부여해야한다.
+        .style을 이용해 css에 접근했다면 css style 속성 중 어떤 것을 바꿀 것인지 명시해야하는 것이다.
+        이때에는 .style 뒤에 바꾸고 싶은 속성을 앞에 .을 붙여 카멜 표기법으로 작성한다.
+        (ex. z-index = zIndex)
+
+        [기본형]
+        1. 해당 id 선택자에 적용된 css 스타일 속성에 현재 들어있는 값을 알고 싶을 경우
+        document.getElementById(아이디명).style.css속성명;
+
+        2. 해당 id 선택자에 적용된 css 스타일 속성의 속성값을 바꾸고 싶은 경우
+        document.getElementById(아이디명).style.css속성명 = "바꾸고 싶은 속성값";
+    -->
+    <script>
+      const color = ["blue", "pink", "yellow", "green"];
+      let i = 0;
+      function changeColor() {
+        i++;
+        // i가 배열 데이터 갯수와 같아지면 다시 0으로 바꾸겠다.
+        if (i >= color.length) {
+          i = 0;
+        }
+        document.getElementById("bg").style.backgroundColor = color[i];
+      }
+    </script>
+    <button type="button" id="bgButton" onclick="changeColor()">버튼</button>
+    <!-- ------------------------------------------------------------------------ -->
+    <div class="area" id="colorArea"></div>
+    <input type="color" name="" id="colorChoice" />
+    <button onclick="changColor();">색 변경</button>
+
+    <script>
+      function changColor() {
+        var aa = document.getElementById("colorChoice").value;
+        colorArea.style.backgroundColor = aa;
+      }
+    </script>
+  </body>
+</html>
