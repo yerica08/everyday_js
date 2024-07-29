@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>return문 실습</title>
+  </head>
+  <body>
+    <script>
+      // 사용자에게 국어점수와 수학점수를 받아보고 그것의 평균 점수 받기
+      /*
+      const arrSubject = ["국어", "수학"];
+      arrSubject[0] = Number(prompt("국어 점수를 입력하세요."));
+      arrSubject[1] = Number(prompt("수학 점수를 입력하세요."));
+
+      function testAvg(arrData) {
+        let sum = 0;
+        for (let i = 0; i < arrData.length; i++) {
+          sum += arrData[i];
+        }
+        return sum / arrData.length;
+      }
+
+      document.write(testAvg(arrSubject));
+      */
+
+      //--------------- 아래 선생님 해설
+
+      const arrSubject = ["국어", "수학"];
+      function testAvg(arrData) {
+        let sum = 0;
+        for (let i = 0; i < arrData.length; i++) {
+          sum += Number(prompt(arrData[i] + "점수는?", "0"));
+        }
+        return sum / arrData.length;
+      }
+      let result = testAvg(arrSubject);
+      document.write(result);
+    </script>
+  </body>
+</html>

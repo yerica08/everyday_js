@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 매개변수에 기본값을 할당한 경우
+      function multiple(a, b = 5, c = 10) {
+        return a * b + c;
+      }
+      document.write(multiple(3), "<br/>");
+      const num1 = parseInt(); // 0
+      const num2 = parseInt(true); // 1
+      const num3 = parseInt(null); // 0
+      const num4 = parseInt(""); // 0
+      const num5 = parseInt(false); // 0
+      const num6 = parseInt("false"); // 0
+      const num7 = parseInt("   10     15"); // 0
+
+      document.write(
+        num1,
+        "<br/>",
+        num2,
+        "<br/>",
+        num3,
+        "<br/>",
+        num4,
+        "<br/>",
+        num5,
+        "<br/>",
+        num6,
+        "<br/>",
+        num7
+      );
+    </script>
+  </body>
+</html>

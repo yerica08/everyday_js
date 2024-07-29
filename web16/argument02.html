@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매개변수 없이 인수값 받아오기</title>
+  </head>
+  <body>
+    <!-- 
+        매개변수 없이 인수를 받아오는 함수
+        : 만약 함수를 실행할 때마다 받아와야하는 인수의 갯수가 달라지거나,
+        혹은 인수가 너무 많은 경우 매개변수 없이
+        arguments 키워드를 이용하여 인수를 받아올 수 있다.
+        함수 정의문에서 arguments를 사용하면 arguments가 인수를 받아 배열로 데이터를 저장한다.
+        배열로 담긴 이 데이터는 함수 안에서 자유롭게 사용할 수 있다.
+
+        [기본형]
+        function 함수명(){
+            arguments;
+            자바스크립트 코드;
+        }
+        함수명(인수1, 인수2, 인수3...)
+
+        함수의 값을 반환하는 return문
+        : return문은 함수에서 결과값을 반환할 때 사용한다.
+        그리고 return문이 실행되면 반복문의 break문처럼 코드가 강제 종료된다.
+        즉, return문의 아래에 코드가 더 있더라도 return문을 만나면 아랫줄의 코드는 무시하고 값을 반환한 후 함수를 종료한다.
+        반환된 값은 함수를 호출한 자리에 남는다.
+        그렇기 때문에 함수 호출문이 변수 안에 담겨 있어야한다.
+
+        [기본형]
+        function 함수명(){
+            자바스크립트 코드1;
+            return 반환할 값;
+            자바스크립트 코드2; <- return문 다음에 등장하는 자바스크립트 코드는 무시한다.
+        }
+        let 변수 = 함수명(); <- 이 자리에 반환된 값이 저장된다.
+    -->
+    <script>
+      function sum() {
+        arguments; //argument = 아래 sum에서 값을 받아 [10,20,30,40]이 들어오게 된다.
+        return arguments[0] + arguments[1] + arguments[3];
+      }
+      // sum함수가 실행되면 return문에 의해서 반환된 값이 sum 자리로 온다.
+      let result1 = sum(10, 20, 30, 40);
+      document.write(result1, "<br/>");
+
+      function sum2() {
+        arguments;
+        let result2 = 0;
+        //arguments 배열 안에 있는 모든 데이터를 더하기(누산)
+        for (let i = 0; i < arguments.length; i++) {
+          result2 += arguments[i];
+        }
+        document.write(result2);
+      }
+      sum2(10, 20, 30, 40, 50, 60, 70, 80, 90, 100, "<br/>");
+      //NaN = not a number 라는 오류표시
+
+      // 사용자로부터 숫자를 입력받아서 0부터 사용자가 입력한 숫자까지 모두 더하는 누산기 만들기.
+      // parseInt(문자형 숫자) : 문자형 숫자를 정수로 바꿔주는 메서드.
+      let userNumber = prompt("어디까지 더할까요?");
+      if (userNumber !== null) {
+        clacSum(parseInt(userNumber)); //clacSum 함수 호출,
+      }
+      // parseInt로 userNumber를 정수로 만든 값을 아래 n에 대입
+      function clacSum(n) {
+        let result3 = 0;
+        for (let k = 1; k < n + 1; k++) {
+          result3 += k;
+        }
+        document.write(result3);
+      }
+
+      //return문
+      function myFnc(n, k) {
+        return n + k;
+      }
+      document.write(myFnc(10, 20));
+    </script>
+  </body>
+</html>
