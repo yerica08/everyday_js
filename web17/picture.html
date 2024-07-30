@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>간단 슬라이드</title>
+    <style>
+      #galleryZone {
+        width: 600px;
+        height: 700px;
+        overflow: hidden;
+      }
+      img {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="galleryZone">
+      <p><img src="./img/pic_1.jpg" alt="사진" id="photo" /></p>
+    </div>
+    <p>
+      <button type="button" onclick="gallery(0)">이전</button>
+      <button type="button" onclick="gallery(1)">다음</button>
+    </p>
+    <script>
+      let num = 1;
+      function gallery(direct) {
+        if (direct) {
+          if (num == 6) {
+            return;
+          } else {
+            num++;
+          }
+        } else {
+          if (num == 1) {
+            return;
+          } else {
+            num--;
+          }
+        }
+        const imgTag = document.getElementById("photo");
+        /* 
+            setAttribute 메서드
+            : 선택한 태그의 특정 속성을 수정하는 메서드
+            선택한태그는 document.getElementById()와 같은 형식이거나 다른 태그를 불러오는 속성이어야한다.
+            setArribute 메서드의 첫번째 인자값으로는 해당 태그의 속성 이름이 들어가고
+            두번째 인자값으로는 해당 속성의 값을 인자로 전달한다.
+
+            [기본형]
+            선택한태그.setAttribute("바꾸고 싶은 태그 속성", "바꿀 속성값")
+        
+        */
+        imgTag.setAttribute("src", "./img/pic_" + num + ".jpg");
+      }
+    </script>
+  </body>
+</html>
