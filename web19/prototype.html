@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로토타입</title>
+  </head>
+  <body>
+    <!-- 
+        프로토타입(prototype)
+        : 객체 생성자 함수를 선언하여 객체를 생성하고 속성과 함수를 등록하여 사용할 때
+        앞에서 배운 내용대로 메서드를 사용하면 객체를 생성한 만큼 함수가 등록된다.
+        그리고 함수를 여러개 등록하면 메모리 공간을 많이 차지하여 메모리를 낭비하게 된다.
+        이럴 때 객체 생성자 함수에 프로토타입을 사용하여 함수를 등록하면 메모리 낭비를 줄일 수 있다.
+
+        프로토타입의 사전적인 의미는 '원형'이다. "원래의 형태(=유전자)"를 뜻한다.
+        프로토 타입을 사용하여 함수를 등록하면 함수는 유전자(프로토타입)에서 생성된 객체를 공유할 수 있다.
+        즉, 여러개의 함수를 등록할 필요가 없다.
+
+        [기본형]
+        function 함수명1(매개변수...){
+            this.속성명 = 속성값;                                               <- 객체의 프로퍼티(속성)
+            함수명1.prototype.함수명2 = function(){자바스크립트 코드;}            <- 객체의 프로토타입 메서드
+        }
+
+        let 변수명 = new 함수명1();                                             <- 실행
+        변수명.함수명2();                                                       <- 프로토타입으로 만들어 둔 메서드 출력
+    -->
+    <script>
+      function CheckWeight(
+        name = "이름을 입력해주세요.",
+        height = 0,
+        weight = 0
+      ) {
+        this.userName = name;
+        this.userHeight = height;
+        this.userWeight = weight;
+        this.minWeight;
+        this.maxWeight;
+        this.normalWeight;
+        CheckWeight.prototype.getInfo = () => {
+          let str = "";
+          str += "이름 : " + this.userName + " , ";
+          str += "키 : " + this.userHeight + " , ";
+          str += "몸무게 : " + this.userWeight + "<br/>";
+          return str;
+        };
+        // 평균 몸무게를 구해주는 함수
+        CheckWeight.prototype.getResult = () => {
+          //평균체중의 오차범위
+          this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+          this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+          this.normalWeight = (this.userHeight - 100) * 0.9;
+          if (
+            this.userWeight >= this.minWeight &&
+            this.userWeight <= this.maxWeight
+          ) {
+            return "정상 몸무게 입니다.";
+          } else if (this.userWeight <= this.minWeight) {
+            return (
+              "정상몸무게 " +
+              this.normalWeight +
+              "kg 보다 " +
+              (this.normalWeight - this.userWeight) +
+              "kg 미달되었기 때문에 저체중입니다."
+            );
+          } else if (this.userWeight >= this.maxWeight) {
+            return "과체중입니다.";
+          }
+        };
+      }
+
+      let kim = new CheckWeight("김땡땡", "175", "65");
+      //   매개변수도 변수이다. CheckWeight에 새로운 매개변수를 넣으면 덮어써진다. 이럴때는 깊은복사와 얕은복사를 사용하여 써야한다.
+      let lee = new CheckWeight("이땡땡", 175, 50);
+      console.log(kim);
+      document.write(kim.getInfo());
+      document.write(kim.getResult(), "<br/>", "<br/>");
+
+      //   let lee = new CheckWeight("이땡땡", 175, 50);
+      document.write(lee.getInfo());
+      document.write(lee.getResult(), "<br/>");
+    </script>
+  </body>
+</html>

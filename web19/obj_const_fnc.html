@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성자 함수</title>
+  </head>
+  <body>
+    <!-- 
+        객체 생성자 함수(Object Contructor Function)
+        : 내장객체를 생성할 때는 이미 자바스크립트 엔진에 내장되어 있는 객체 생성자 함수를 사용해서 객체를 생성한다.
+        객체 생성자 함수의 이름은 첫글자를 대문자로 쓰는것이 관례이다.
+        객체 생성자 함수는 모체(어머니)이다. 계속해서 새로운 객체를 생성할 수 있다. 그리고 그렇게 생성된 객체에 새로운 속성과 함수를 넣을 수도 있다.
+
+        [기본형]
+        function 함수명(매개변수1, 매개변수2...){
+            this.속성명 = 속성값;
+            this.함수명 = function(){ 자바스크립트 코드; }
+        }
+
+        let 참조변수 = new 함수명();   <- 객체 생성자 함수 호출문(new 라는 키워드는 반드시 붙어야 한다.)
+
+        let 참조변수 = {
+            속성:속성값, 
+            함수명:function(){...}
+        }   <- 객체 생성자 함수
+        
+        ** 이 틀을 안전하게 보관하려면 let 보단 const를 쓰는 것이 안전하다.
+    -->
+    <script>
+      // 객체를 생성할 때에는 대문자로 생성하는것이 관례
+      function CheckWeight(
+        // 사용자가 입력하지 않았을 경우를 위해서 초기값을 입력하면 좋다. height 와 weight는 계산이 되어야하기 때문에 숫자를 입력해야한다.
+        name = "이름을 입력해주세요.",
+        height = 0,
+        weight = 0
+      ) {
+        //사용자의 이름을 this(객체)의 userName 속성에 할당함.
+        this.userName = name;
+        this.userHeight = height;
+        this.userWeight = weight;
+        this.minWeight;
+        this.maxWeight;
+        this.normalWeight;
+        // 사용자의 벙보를 단순 출력해주는 함수
+        this.getInfo = () => {
+          let str = "";
+          str += "이름 : " + this.userName + " , ";
+          str += "키 : " + this.userHeight + " , ";
+          str += "몸무게 : " + this.userWeight + "<br/>";
+          return str;
+        };
+        // 평균 몸무게를 구해주는 함수
+        this.getResult = () => {
+          //평균체중의 오차범위
+          this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+          this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+          this.normalWeight = (this.userHeight - 100) * 0.9;
+          if (
+            this.userWeight >= this.minWeight &&
+            this.userWeight <= this.maxWeight
+          ) {
+            return "정상 몸무게 입니다.";
+          } else if (this.userWeight <= this.minWeight) {
+            return (
+              "정상몸무게 " +
+              this.normalWeight +
+              "kg 보다 " +
+              (this.normalWeight - this.userWeight) +
+              "kg 미달되었기 때문에 저체중입니다."
+            );
+          } else if (this.userWeight >= this.maxWeight) {
+            return "과체중입니다.";
+          }
+        };
+      }
+
+      // 175랑 65가 문자형 숫자인데도 계산이 되는 이유는 자바스크립트에서 자동으로 변환해줘서 그렇다. 타임 스크립트에서는 불가능
+      let kim = new CheckWeight("김땡땡", "175", "65");
+      console.log(kim);
+      document.write(kim.getInfo(), "<br/>");
+      document.write(kim.getResult(), "<br/>");
+
+      let lee = new CheckWeight("이땡땡", 175, 50);
+      document.write(lee.getInfo(), lee.getResult(), "<br/>");
+    </script>
+  </body>
+</html>

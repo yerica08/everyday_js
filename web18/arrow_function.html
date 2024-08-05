@@ -39,6 +39,8 @@
         : 매개변수가 1개인 경우 매개변수 자리의 ()를 생략할 수 있다.
         -----------------------------------------------------------
         let 변수 = 매개변수 => 자바스크립트 코드;
+        let 변수 = (매개변수) => 자바스크립트 코드;
+        ** 매개변수에 소괄호를 안써도 되지만 프리터를 쓰면 자동으로 입력된다. 
 
         4. 매개변수가 2개 이상인 경우
         : 매개변수가 둘 이상인 경우 (매개변수)=>{코드} 형태를 사용한다.
@@ -49,7 +51,7 @@
       */
       //매개변수가 없을 경우
       let hello = () => {
-        document.write('hello', '<br/>');
+        document.write("hello", "<br/>");
       };
       hello();
 
@@ -59,22 +61,22 @@
       //   return 'hi';
       // }; 이 코드를 아래처럼 축약할 수 있다.
 
-      let hi = () => 'hi';
-      document.write(hi(), '<br/>'); //hi함수를 호출하여 결괏값을 화면에 표시함.
+      let hi = () => "hi";
+      document.write(hi(), "<br/>"); //hi함수를 호출하여 결괏값을 화면에 표시함.
 
       //매개변수가 1개인 경우
-      let myName = (name) => document.write('제 이름은 ' + name + '입니다.');
+      let myName = (name) => document.write("제 이름은 " + name + "입니다.");
 
-      myName('김땡땡');
+      myName("김땡땡");
 
       //매개변수가 2개 이상인 경우
       let addNum = (a = 1, b = 3) => a + b;
 
       let cup = addNum();
-      document.write('<br/>', cup, '<br/>');
+      document.write("<br/>", cup, "<br/>");
 
       cup = addNum(4, 5);
-      document.write(cup, '<br/>');
+      document.write(cup, "<br/>");
     </script>
   </body>
 </html>
