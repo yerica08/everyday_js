@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function UserInfo(name, height, weight) {
+        //사용자의 이름을 this(객체)의 userName 속성에 할당한다.
+        this.userName = name;
+        this.userHeight = height;
+        this.userWeight = weight;
+
+        // 사용자의 정보를 단순 출력해주는 함수.
+        UserInfo.prototype.getInfo = () => {
+          let str = "";
+          str += "이름 : " + this.userName + " , ";
+          str += "키 : " + this.userHeight + " , ";
+          str += "몸무게 : " + this.userWeight + "<br/>";
+          return str;
+        };
+      }
+      let kim = new UserInfo("김땡땡", "175", "65");
+      console.log(kim);
+      document.write(kim.getInfo(), "<br/>");
+    </script>
+  </body>
+</html>

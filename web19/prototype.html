@@ -38,7 +38,7 @@
         this.minWeight;
         this.maxWeight;
         this.normalWeight;
-        CheckWeight.prototype.getInfo = () => {
+        CheckWeight.prototype.getInfo = function () {
           let str = "";
           str += "이름 : " + this.userName + " , ";
           str += "키 : " + this.userHeight + " , ";
@@ -46,7 +46,7 @@
           return str;
         };
         // 평균 몸무게를 구해주는 함수
-        CheckWeight.prototype.getResult = () => {
+        CheckWeight.prototype.getResult = function () {
           //평균체중의 오차범위
           this.minWeight = (this.userHeight - 100) * 0.9 - 5;
           this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
