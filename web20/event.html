@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        DOM에서 이벤트 처리하기
+        : DOM 이벤트란 사용자가 해당 페이지에서 하는 모든 행위를 뜻한다.
+        즉, 클릭이나 더블클릭, 마우스휠로 페이지를 위 아래로 이동하거나
+        태그위에 마우스를 올리는 등 모든 행위를 '이벤트'라고한다.
+
+        자바스크립트에서 이벤트를 실행시키려면 이벤트 처리기(event handler)를 연결해야한다.
+        html 태그에 직접 이벤트 핸들러를 연결시킬수도 있지만 태그와 스크립트소스가 섞여있어
+        복잡한 프로그램에는 적합하지 않다.
+        이럴 때 자바스크립트 내부에서 이벤트 핸들러를 연결하면 html태그와 스크립트 소스를 완전히 분리시킬 수 있다.
+
+        1. 해당 요소에 이벤트를 직접 적용하기.
+        : 해당 요소에 이벤트를 1개만 직접 적용할 때 사용한다. 다른 태그에는 해당 이벤트가 적용되지 않는다.
+
+        [기본형]
+        요소명.on이벤트명 = function(){자바스크립트코드;}
+
+
+        2. 함수명을 이용해 이벤트 연결하기
+        : 이벤트를 함수로 등록한다. 이 이벤트는 여러 태그에 동시에 적용 가능하다.
+        
+        [기본형]
+        변수명1 = 요소선택;
+        변수명1.on이벤트명 = 함수명; <- 함수명에 소괄호를 붙이지 않는다.
+
+        function 함수명(){
+            자바스크립트 코드;
+        } 
+    -->
+    <img src="./img/cat.jpg" alt="cat" id="img1" />
+    <img src="./img/door.jpg" alt="door" id="img2" />
+    <script>
+      const imgTag1 = document.querySelector("#img1");
+      const imgTag2 = document.querySelector("#img2");
+
+      // imgtag1에만 이벤트 적용
+      //   imgTag1.onclick = function () {
+      //     alert("이미지를 클릭했습니다.");
+      //   };
+
+      // 함수명으로 이벤트를 실행할 때 함수명 뒤에 소괄호를 붙이지 않는다.
+      imgTag1.onclick = clickImage;
+      imgTag2.onclick = clickImage;
+      //   imgTag2.onmouseover = clickImage;
+      // 이미지를 클릭하면 imgTag2에 src 속성을 alert창으로 출력해주는 함수
+      function clickImage() {
+        alert(this.getAttribute("src"));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>트리노드</title>
+  </head>
+  <body>
+    <!-- 
+        트리 노드
+        : DOM 객체에서 부모와 자식 구조로 나눠지는 모든 것을 '노드'라고 표현한다.
+        부모자식 구조를 도표로 표시하면 나무 뿌리의 형태가 되므로 DOM트리라고 부른다.
+        DOM 트리에서 가지가 갈라져 나온 항목을 노드(node)라고 하고, 
+        DOM트리의 시작부분인 html 노드를 나무 뿌리에 해당한다고 해서 루트 노드(root node) 라고 부른다.
+        루트노드를 시작으로 웹 문서에서 사용한 요소는 계층 구조를 이룬다.
+        따라서 각 노드 사이의 관계를 부모와 자식, 형제간으로 표현할 수 있다.
+        부모 노드(parent node)에는 자식 노드(child node)가 있고, 부모 노드가 같은 형제 노드(sibling node)가 있다.
+
+        DOM 을 구성하는 기본 원칙 ★★★
+        1. 모든 HTML 태그는 요소 노드(element node)이다.
+        2. HTML에서 사용하는 텍스트 내용은 자식 노드인 텍스트 노드(text node)이다.
+        3. HTML 태그에 있는 속성은 자식 노드인 속성 노드(attribute node)이다.
+        4. 주석은 주석 노드(comment node)이다.
+
+        ---------------------------------------------------------------
+
+        DOM 요소에 접근하고 속성 가져오기
+        : CSS 에서는 class, id, 태그 등의 스타일을 각각 구별해서 정의해야한다.
+        이때 class, id, 태그 등을 '선택자(selector)'라고 한다.
+        DOM 요소에 접근하려면 이 선택자들을 이용한다.
+
+        1. id 선택자로 접근하는 getElementById()메서드
+        : html 태그의 id속성은 html 요소가 문서 안에서 중복되지 않도록 사용하는 css 선택자이다.
+        getElemetById()를 사용하면 특정한 id가 포함된 해당 요소를 선택할 수 있다.
+        해당 메서드를 사용할 때 아이디명은 앞에 #을 붙이지 않고 이름만 문자열로 작성한다.
+
+        [기본형]
+        document.getElementById("아이디명")
+
+        2. class 선택자로 접근하는 getElementsByClassName()메서드
+        : class 선택자는 웹 문서 안에서 여러 요소에서 사용할 수 있으므로 getElementsByClassName()메서드를 사용한다.
+        해당 메서드를 사용하면 반환하는 요소가 2개 이상일 수 있다.
+        그래서 이 메서드 이름에는 반환 요소가 여러개라는 뜻에서 Element에 s가 붙는다.
+        불러오는 클래스 명에는 온점(.)이 붙지 않으며 이름만 문자열로 작성한다.
+        getElementsByClassName()를 사용하면 클래스 이름이 같은 DOM 요소들이 HTMLCollaction안에 객체로 저장된다.
+        HTMLCOllaction객체는 배열과 비슷하지만 객체는 아니다. HTMLCollaction은 html 태그 요소들을 저장하는 공간이다.
+
+        [기본형]
+        document.getElementsByClassName("클래스명")
+
+        3. 태그 이름으로 접근하는 getElemetByTagName()메서드
+        : class나 id를 지정하지 않은 DOM요소에 접근하려면 태그를 이용한다.
+        getElemetByTagName()메서드를 사용하면 해당 태그명을 사용한 요소에 접근할 수 있다.
+        getElemetByTagName()과 마찬가리 HTMLCollaction안에 배열 형태로 저장된다.
+
+        [기본형]
+        document.getElemetByTagName("태그명")
+
+        4. 다양한 방법으로 접근하는 querySelector(), querySelectorAll()
+        : 위 메서드의 반환 값은 HTMLCollaction에 저장된다.
+        HTMLCollaction에는 p태그나 a태그의와 같은 요소만 저장된다.
+        DOM트리의 텍스트, 속성노드까지 자유롭게 제어하려면 querySelector()나 querySelectorAll()메서드를 사용해야한다.
+        id 선택자처럼 반환값이 1개라면 querySelector()를 사용하고,
+        class 선택자나 태그 선택자처럼 반환값이 여러개라면 querySelectorAll()를 사용한다.
+        또한 메서드의 ()안에는 샵(#)이나 온점(.)과 같은 선택자 기호가 함께 들어가야한다.
+        해당 메서드들의 반환값은 노드이거나 노드리스트(node list)이다.
+        노드 리스트도 노드를 한꺼번에 여러개 저장한 것으로 배열과 비슷하다.
+        만약 querySelector()로 class나 태그를 선택하면 여러개의 요소 중 첫번째에 위치한 태그요소 한개만 선택된다.
+
+        [기본형]
+        document.querySelector("#아이디명")
+        document.querySelectorAll(".클래스명")
+        document.querySelectorAll("태그명")
+
+    -->
+    <h1 id="heading">제목1</h1>
+    <h2 class="title1">제목2</h2>
+    <h2 class="title1">제목2</h2>
+    <h2 class="title1">제목2</h2>
+    <p>p태그</p>
+    <p>p태그</p>
+    <p>p태그</p>
+    <h3 id="title3">제목3</h3>
+    <h3 class="title3">제목3</h3>
+    <h3 class="title3">제목3</h3>
+    <h4>제목4</h4>
+    <h4>제목4</h4>
+    <h4>제목4</h4>
+    <script>
+      //아이디 선택자
+      const heading = document.getElementById("heading");
+      heading.style.color = "red";
+
+      //클래스 선택자
+      const title1 = document.getElementsByClassName("title1");
+      /* HTMLCollaction 안에 배열 데이터처럼 요소객체가 저장되므로 인덱스로 불러온다.
+      배열에는 스타일을 적용할 수 없다. 동일한태그에 모든 스타일을 적용하고 싶으면 반복문을 써야한다. */
+      for (let i = 0; i < title1.length; i++) {
+        title1[i].style.color = "blue";
+      }
+
+      //태그 선택자
+      const elmentPtag = document.getElementsByTagName("p");
+      elmentPtag[0].style.backgroundColor = "yellow";
+
+      const h3tag1 = document.querySelector("#title3");
+      h3tag1.style.color = "pink";
+      const h3tag2 = document.querySelectorAll(".title3");
+      for (let i = 0; i < h3tag2.length; i++) {
+        h3tag2[i].style.color = "orange";
+      }
+      const h4tag = document.querySelectorAll("h4");
+      for (let i = 0; i < h4tag.length; i++) {
+        h4tag[i].style.color = "skyblue";
+      }
+      let k = al;
+    </script>
+  </body>
+</html>

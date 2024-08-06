@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성 노드</title>
+  </head>
+  <body>
+    <!-- 
+        웹 요소의 내용을 수정하는 innerText, innerHTML 프로퍼티
+        : 자바스크립트에서는 웹 요소의 내용도 수정할 수 있다.
+        가장 쉬운 방법은 innerText, innerHTML 프로퍼티를 사용하는 방법이다.
+        innerText 프로퍼티는 텍스트 내용을 표시하고
+        innerHTML 프로퍼티는 태그까지 반영하여 표시한다.
+        
+        [기본형]
+        요소명.innerText = '내용'
+        요소명.innerHTML = '내용'
+
+        -------------------------------------------------
+
+        속성을 가져오거나 수정하는 getAttribute(), seAttribute()메서드
+        : 웹 요소를 문서에 삽임할 때 태그 속성을 함께 사용하면
+        DOM트리에 속성노드가 추가되면서 속성값이 지정된다.
+        이때 속성에 접근하려면 getAttribute()를 사용하고,
+        속성을 수정하려면 setAttribute()메서드를 사용한다.
+
+        [기본형]
+        1. 요소명.getAttribute('속성명')
+        : 선택한 요소의 해당 속성명에 들어있는 값을 반환한다.
+        2. 요소명.setAttribute('속성명','속성값')
+        : 선택한 요소의 해당 속성을 속성값으로 바꾼다. 만약 해당 속성이 태그에 없다면 속성과 속성값을 새로 추가한다.
+    -->
+    <button type="button" onclick="inText()">innerText로 표시하기</button>
+    <button type="button" onclick="inHtml()">innerHTML로 표시하기</button>
+    <h2>현재시각 표시하기</h2>
+    <div id="current"></div>
+
+    <img src="./img/door.jpg" alt="문" width="200" id="pic01" />
+    <button type="button" onclick="picChange()">이미지</button>
+    <script>
+      //오늘 날짜와 시간정보를 날짜객체로 불러오기
+      let now = new Date();
+      function inText() {
+        document.getElementById("current").innerText = now;
+      }
+      function inHtml() {
+        document.getElementById("current").innerHTML = "<em>" + now + "</em>";
+      }
+
+      //속성에 접근해야 하므로 querySelector로 이미지 태그를 선택.
+      const picture = document.querySelector("#pic01");
+      document.write(picture.getAttribute("src"));
+      function picChange() {
+        picture.setAttribute("src", "./img/cat.jpg");
+      }
+    </script>
+  </body>
+</html>
