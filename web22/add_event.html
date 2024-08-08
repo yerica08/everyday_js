@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트 여러개 입력하기</title>
+    <style>
+      #rect {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        addEventListener() 메서드 사용하기
+        : 앞에서 배운 이벤트 핸들러는 한 요소에 하나의 이벤트만 연결할 수 있다.
+        하지만 하나의 요소에 여러 이벤트를 연결해야 할 경우
+        addEventListener()를 이용하면 하나의 요소에 여러 이벤트를 연결할 수 있다.
+
+        [기본형]
+        요소선택.addEventListener(이벤트명, 함수, 캡쳐 여부)
+
+        1. 이벤트명 : 이벤트의 유형. click이나 keypress처럼 이벤트 이름이 들어간다.
+                     단, on 키워드는 빼고 이벤트 이름만 쓴다.
+        2. 함수 : 이벤트가 발생하면 실행할 명령이나 함수를 지정한다.
+                함수를 정의할 때 event객체를 인수로 받는다.
+                이 이벤트 핸들러를 연결할 때 만약 함수명으로 연결할 경우 (소괄호)는 제외하고 함수의 이름만 넣어야한다.
+        3. 캡쳐여부 : 이벤트를 캡쳐 여부를 지정하며 기본값은 false이다. true나 false중에 선택할 수 있다.
+                      true면 캡처링, false면 버블링한다는 의미이다.
+                      이벤트 캡처링은 DOM의 부모노드에서 자식노드로 이벤트를 전달하는 것을 의미하고,
+                      버블리은 DOM의 자식 노드에서 부모 노드로 이벤트를 전달하는 것을 말한다.
+    -->
+    <img
+      src="https://images.pexels.com/photos/20584388/pexels-photo-20584388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      alt="인물 사진"
+      id="cover"
+      width="200" />
+
+    <div id="rect"></div>
+    <script>
+      //이미지 태그를 cover 변수에 할당
+      const cover = document.querySelector("#cover");
+      // cover.addEventListener('mouseover', function(){이벤트코드~~})
+      cover.addEventListener("mouseover", chagePic);
+      cover.addEventListener("mouseout", originPic);
+
+      function chagePic() {
+        this.src =
+          "https://images.pexels.com/photos/3347413/pexels-photo-3347413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+      }
+      function originPic() {
+        this.src =
+          "https://images.pexels.com/photos/20584388/pexels-photo-20584388.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+      }
+
+      /* rect를 선택해서 마우스 포인터를 올리면 초록색 원으로 바뀌고
+      마우스 포인터가 벗어나면 원래대로 돌아갈 수 있도록 만들기
+      */
+      const rect = document.querySelector("#rect");
+      rect.addEventListener("mouseover", green);
+      rect.addEventListener("mouseout", back);
+      function green() {
+        this.style.backgroundColor = "green";
+        this.style.borderRadius = "100%";
+      }
+      function back() {
+        this.style.backgroundColor = "";
+        this.style.borderRadius = "";
+      }
+    </script>
+  </body>
+</html>
