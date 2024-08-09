@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        DOM에서 노드 추가, 삭제하기
+        : 웹 문서에서 처음 화면에는 보이지 않다가 클릭이나 이벤트가 발생하면 내용이 나타나는 경우가 있다.
+        이런 동작은 css의 display 속성을 사용해서 만들 수도 있지만,
+        DOM 트리에 새로운 노드를 추가하는 방법도 있다.
+        이때 주의할 점은 노드를 추가하면 단순히 요소 노드 뿐 아니라 텍스트와 속성 노드도 함께 추가해주어야 한다는 것이다.
+
+        노드 리스트란?
+        : 노드를 여러개 저장한 형태, 배열와 같이 저장되어있지만 진짜 배열은 아님.
+        DOM 에서 새로운 노드를 만들어 추가하거나 삭제하려면 '노드 리스트(node list)'를 사용해야한다.
+        DOM에 접근할 때 querySelectorAll()메서드를 사용하면 노드를 한꺼번에 여러 개 가져올 수 있다.
+        이때 노드 정보를 여러 개 저장한 것이 노드 리스트이다.
+        배열과 비슷하게 동작한다는 특징이 있다.
+        여러 개 노드 중 특정한 노드를 불러오고 싶다면 아래와 같은 기본형을 사용한다.
+
+        [기본형]
+        document.querySelectorAll('li')[인덱스번호]
+
+        -------------------------------------------------------------------------------------------------------
+
+        새로운 노드 추가 과정
+        : 새로운 노드를 추가할 때에는 DOM 트리를 구성하는 기본 원칙에 따라 추가하여 생성할 수 있다.
+        단순히 태그에 해당하는 요소 노드 뿐만 아니라 텍스트 노드와 속성노드도 추가해야한다.
+        예를 들어 img 태그 요소를 자바스크립트를 이용해 동적으로 생성하고 싶다면 
+        <img> 태그의 요소노드 뿐만 아니라 속성에 해당하는 src, alt 같은 속성 노드도 추가해야 한다.
+        어떠한 웹 문서의 DOM 트리에 새로운 노드를 추가하려면 그 문서에 새로운 소스 코드를 작성해야한다.
+        그래서 새 노드를 추가할 때는 웹 문서에 어떤 소스를 추가할지 먼저 생각하고
+        그에 따라 요소노드나 텍스트 노드, 속성 노드도 만들어야한다.
+
+        < 텍스트 노드를 사용하는 새로운 요소 추가하기 >
+        1. 요소 노드 만들기 - createElement()메서드
+        : DOM에 새로운 요소를 추가할 때 가장 먼저 해야 할 일은 요소 노드를 만드는 것이다.
+        이 때 사용하는 메서드는 createElement()메서드인데 괄호 안에 해당하는 요소 노드를 만들면 된다.
+
+        [기본형]
+        document.createElement('노드명');
+
+        2. 텍스트 노드 만들기 - createTextNode()메서드
+        : 새로운 요소 노드를 만들었다면 다음은 내용을 담는 텍스트 노드를 자식 노드로 만들어 연결해야한다.
+        텍스트 노드를 만드는 메서드는 createTextNode()메서드로 아래의 기본형을 사용한다.
+
+        [기본형]
+        document.createTextNode('텍스트');
+
+        3. 자식 노드 연결하기 - appendChlid()메서드
+        : 위 1번과 2번은 새로운 노드들을 만들어 놓기만 한 상태로 아직까지 부모노드와 자식노드가 연결되지 않은 상태이다.
+        appendChlid()메서드는 텍스트 노드나 속성 노드를 만든 후 요소 노드에 연결할 때 사용한다.
+        이때 appendChlid()메서드를 사용해서 연결하는 노드는 자식 노드 중 맨 끝에 추가된다.
+
+        [기본형]
+        부모노드.appendChlid(자식노드)
+    -->
+    <h1>자바스크립트</h1>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <div id="container">
+      <h2>DOM 노드 추가 삭제</h2>
+      <!-- 한번만 동작하라는 코드
+            링크를 클릭하면 addP()함수가 계속 실행되는 현상을 막고 한번만 실행되도록 한다. 
+            아니면 프리밴트 디폴트를 사용하기도 한다.
+        -->
+      <a href="#" onclick="addP(); this.onclick=''">더보기</a>
+      <a href="#" onclick="addP(); ">더보기</a>
+      <div id="info"></div>
+    </div>
+    <script>
+      const liList = document.querySelectorAll("li");
+      console.log(liList[1]);
+      console.log(document.querySelectorAll("li")[1]);
+
+      function addP() {
+        // 1. 새로운 p 요소 노드 만들기
+        const newP = document.createElement("p");
+        // 2. p 요소에 텍스트 만들기
+        let txtNode = document.createTextNode(
+          "DOM은 document Object Model의 약자이다."
+        );
+        // 3. 텍스트 노드를 자식노드로 연결하기
+        newP.appendChild(txtNode);
+        // 4. 부모 요소와 연결
+        document.querySelector("#info").appendChild(newP);
+      }
+    </script>
+  </body>
+</html>

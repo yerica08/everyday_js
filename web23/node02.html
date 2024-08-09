@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>속성값이 있는 노드 추가하기</title>
+  </head>
+  <body>
+    <!-- 
+        < 속성값이 있는 노드 추가하기 >
+        1. 요소 노드 만들기 - createElement()
+
+        2. 속성 노드 만들기 - createAttribute()
+        : 속성 노드를 추가할 때 createAttribute()메서드를 사용한다.
+
+        [기본형]
+        document.createAttribute('속성명')
+
+        3. 속성 노드에 속성값을 추가하기 - .value 프로퍼티
+        : 생성한 속성 노드에 값을 추가할 때에는 value 프로퍼티를 사용한다.
+
+        [기본형]
+        요소노드.value = "속성값"
+
+        4. 속성노드를 부모노드에 추가하기 - setAttributeNode()
+        : 속성 노드는 요소 노의 자식으로 연결해야한다.
+        새로 만든 속성 노드를 요소 노드에 연결하려면 .setAttributeNode()메서드를 사용한다.
+        만약 추가할 속성이 요소 노드에 이미 들어있다면 기존 속성노드를 새 속성 노드로 대체한다.
+
+        [기본형]
+        요소노드.setAttributeNode('속성 노드')
+
+    -->
+    <div id="container">
+      <h2>DOM 노드 추가 삭제</h2>
+      <a href="#" onclick="addP(); this.onclick=''">더보기</a>
+      <a href="#" onclick="addP(); ">더보기</a>
+      <div id="info"></div>
+    </div>
+    <script>
+      function addP() {
+        const newP = document.createElement("p");
+        let txtNode = document.createTextNode(
+          "DOM은 document Object Model의 약자이다."
+        );
+
+        // 속성 노드 추가하기
+        const newImg = document.createElement("img");
+        let src = document.createAttribute("src");
+        let alt = document.createAttribute("alt");
+        src.value =
+          "https://images.pexels.com/photos/27596706/pexels-photo-27596706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+        alt.value = "길거리 풍경";
+        newImg.setAttributeNode(src);
+        newImg.setAttributeNode(alt);
+        document.querySelector("#info").appendChild(newImg);
+
+        newP.appendChild(txtNode);
+        document.querySelector("#info").appendChild(newP);
+
+        // a태그 추가하고 naver 글자 넣기
+        let newA = document.createElement("a");
+        let href = document.createAttribute("href");
+        let text = document.createTextNode("naver");
+        href.value = "https://www.naver.com";
+        newA.setAttributeNode(href);
+        newA.appendChild(text);
+        document.querySelector("#info").appendChild(newA);
+      }
+    </script>
+  </body>
+</html>
