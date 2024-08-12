@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>텍스트필드로 노드 추가/삭제하기</title>
+  </head>
+  <body>
+    <!-- 
+      input 태그에 사용자가 입력한 내용 받아오기
+      : 텍스트 필드와 같이 사용자가 입력한 내용을 자바스크립트로 받아올 때는 .value 프로퍼티를 이용한다.
+      먼저 입력값을 받아올 input태그를 먼저 선택해서 변수에 담아둔 다음
+      변수명.value를 해주면 현재 입력되어있는 내용을 자바스크립트로 가져올 수 있다.
+
+      [기본형]
+      요소선택.value
+      : 현재 요소에 입력된 값을 가져온다.
+
+      요소선택.value = '값';
+      : 현재 요소에 입력된 값을 바꾼다.
+
+      ============================================
+
+      노드 삭제하기
+      : DOM 트리에서 특정 노드를 삭제할 때 특정 노드를 삭제할 때 반드시 기억해야하는 것은
+      부모노드에서 자식 노드를 삭제해야한다는 것이다.
+      즉, 삭제해야할 노드가 있다면 반드시 부모노드를 먼저 찾아야한다.
+      그래서 노드를 삭제하는 메서드 외에도 부모 노드를 찾는 프로퍼티가 필요하다.
+
+      ----------------------------------------------
+
+      parentNode 프로퍼티
+      : DOM 트리의 노드는 바로 삭제할 수 없다.
+      그래서 먼저 부모노드에 접근해야 한다.
+      그러려면 삭제할 노드의 부모 노드를 찾아 가는 방법을 알아야한다.
+      parentNode 프로퍼티는 현재 노드의 접근하여 부모노드의 요소 노드를 반환한다.
+
+      [기본형]
+      노드.parentNode
+
+      ---------------------------------------------
+
+      removeChild()메서드
+      : 부모노드를 찾은 후 부모 노드 안에 있는 자식 노드를 삭제하고 싶다면 removeChild메서드를 사용하면 된다.
+      이름에서도 알 수 있듯이 자식노드를 삭제하는 메서드이다.
+
+      [기본형]
+      부모노드.removeChild(자식노드)
+    -->
+    <div id="container">
+      <h1>Web Programming</h1>
+      <p>공부할 주제를 기록해 보세요</p>
+      <form action="">
+        <input type="text" id="subject" autofocus />
+        <!-- 
+         뒤에 return false;를 붙이면 button태그가 가지고 있는 submit 기능을 취소해준다. 
+        newRegister()만 사용하겠다는 의미이다.
+        혹은 type="button"을 사용해도 된다.
+        -->
+        <button onclick="newRegister(); return false;">추가</button>
+      </form>
+      <hr />
+      <ul id="itemList"></ul>
+    </div>
+    <script>
+      // 1. 새로운 요소를 만들고 연결하기
+      function newRegister() {
+        // li 태그 생성
+        let newItem = document.createElement("li");
+        // input 태그 선택
+        let subject = document.querySelector("#subject");
+        // input 태그에 사용자가 입력한 내용(value)을 createTextNode로 생성
+        let newText = document.createTextNode(subject.value);
+
+        // input에 입력된 값을 li에 추가
+        newItem.appendChild(newText);
+
+        // 부모노드인 ul 선택
+        let itemList = document.querySelector("#itemList");
+        // ul 안에 동적으로 생성한 li 넣기
+        itemList.appendChild(newItem);
+
+        // 다음 입력을 위해 텍스트 필드 비우기
+        subject.value = "";
+
+        // 지우고 싶은 li의 부모노드 찾기
+        // document.querySelectorAll("li")[1].parentNode;
+
+        // 추가된 li들을 모두 가져오기
+        let items = document.querySelectorAll("li");
+
+        for (let i = 0; i < items.length; i++) {
+          items[i].addEventListener("click", function () {
+            // 부모노드가 있다면 부모노드에서 li를 삭제해라.
+            if (this.parentNode) this.parentNode.removeChild(this);
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
