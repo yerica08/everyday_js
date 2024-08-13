@@ -46,6 +46,19 @@
 
       [기본형]
       부모노드.removeChild(자식노드)
+
+      ---------------------------------------------
+
+      insertBefore()
+      : appendChild()메서드를 이용하면 새로운 노드를 부모노드의 맨 끝에 추가한다.
+      추가되는 노드의 순서를 바꿔 표시하려면 부모노드와 자식노드의 관계를 파악한 후에 
+      마지막 자식노드를 맨 앞에 추가하면 된다.
+      부모노드의 자식노드 중 가장 앞의 자식노드는 인덱스 0번이다. 이에 접근하기 위해
+      부모노드.childNodes[0]라는 문법을 쓰면 된다.
+      이 노드 앞에 새로운 노드를 추가하려면 .insertBefore()메서드를 사용할 수 있다.
+
+      [기본형]
+      부모노드.insertBefore(추가할 노드, 노드 위치)
     -->
     <div id="container">
       <h1>Web Programming</h1>
@@ -78,7 +91,8 @@
         // 부모노드인 ul 선택
         let itemList = document.querySelector("#itemList");
         // ul 안에 동적으로 생성한 li 넣기
-        itemList.appendChild(newItem);
+        // itemList.appendChild(newItem) 대신해 insertBefore사용
+        itemList.insertBefore(newItem, itemList.childNodes[0]);
 
         // 다음 입력을 위해 텍스트 필드 비우기
         subject.value = "";
