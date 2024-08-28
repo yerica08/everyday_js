@@ -23,6 +23,7 @@ body {
 }
 
 h2 {
+  //  clamp(최솟값, 선호값, 최댓값)
   font-size: clamp(1rem, 5vw, 5rem);
   font-weight: 400;
   text-align: center;
